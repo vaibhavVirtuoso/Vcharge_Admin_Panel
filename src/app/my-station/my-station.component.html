@@ -1,0 +1,135 @@
+<h1>My Station</h1>
+<div class="table-content-card">
+    <mat-card>
+        <mat-card-content>
+            <!-- <table mat-table >
+            <thead>
+                <tr>
+                    <th rowspan="2">Sr no</th>
+                    <th rowspan="2">Station</th>
+                    <th rowspan="2">Location</th>
+                    <th rowspan="2">Address</th>
+                    <th colspan="4">Chargers</th>
+                    <th rowspan="2">Type</th>
+                    <th rowspan="2">Status</th>
+                    <th rowspan="2">Usage</th>
+                    <th rowspan="2">Revenue</th>
+                  </tr>
+                  <tr>
+                    <th><mat-icon style="color: rgb(14, 170, 209);">fiber_manual_record</mat-icon>Total</th>
+                    <th><mat-icon style="color: green;">fiber_manual_record</mat-icon>Available</th>
+                    <th><mat-icon style="color: rgb(255, 98, 41);">fiber_manual_record</mat-icon>Inuse</th>
+                    <th><mat-icon  style="color: red">fiber_manual_record</mat-icon>Defective</th>
+                  </tr>
+            </thead>
+            <tbody>
+                  <tr *ngFor="let item of myStationList" >
+                    <td>{{item.id}}</td>
+                    <td><a class="myCharging-station-routing-td" routerLink="/my-station/charging-station">{{item.station}}</a></td>
+                    <td>{{item.location}}</td>
+                    <td>{{item.address}}</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>1</td>
+                    <td>{{item.type}}</td>
+                    <td [ngStyle]="{'color': item.status === 'active' ? 'green' : 'red' }" class="station-status">{{item.status}}</td>
+                    <td>{{item.usage}}</td>
+                    <td>{{item.revenue}}</td>
+                    <td><mat-icon class="vertical-menu-icon" [matMenuTriggerFor]="dotmenu">more_vert</mat-icon>
+                      <mat-menu #dotmenu="matMenu" class="chargingStation-threeDot-Menu">
+                          &nbsp;&nbsp;<mat-slide-toggle>Stop-Start</mat-slide-toggle>&nbsp;<br>
+                          &nbsp;&nbsp;<mat-slide-toggle [checked]="item.status === 'active' ? true : false" #toggleVal (change)="onToggleChange(item.status,item.id)">Inactive-Active</mat-slide-toggle>&nbsp;&nbsp;&nbsp;<br>
+                          &nbsp;&nbsp;<mat-icon>settings</mat-icon><h5>Setting</h5> 
+                      </mat-menu> 
+                  </td>
+                  </tr>
+            </tbody>
+            </table> -->
+
+<!-- using mat-table -->
+<table mat-table [dataSource]="dataSource" matSort>
+  
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header > ID </th>
+    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="station">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Station </th>
+    <td mat-cell *matCellDef="let row"> {{row.station}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="location">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header > Location </th>
+    <td mat-cell *matCellDef="let row"> {{row.location}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Address</th>
+    <td mat-cell *matCellDef="let row"> {{row.address}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header > Type </th>
+    <td mat-cell *matCellDef="let row" > {{row.type}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header > Status </th>
+    <td mat-cell *matCellDef="let row" [ngStyle]="{'color': row.status === 'active' ? 'green' : 'red' }" class="station-status"> {{row.status}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="usage">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Usage </th>
+    <td mat-cell *matCellDef="let row"> {{row.usage}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="revenue">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Revenue</th>
+    <td mat-cell *matCellDef="let row"> {{row.revenue}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="menu">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header  class="menu-col"></th>
+      <td mat-cell *matCellDef="let row">
+          <mat-icon class="vertical-menu-icon" [matMenuTriggerFor]="dotmenu">more_vert</mat-icon>
+          <mat-menu #dotmenu="matMenu" class="chargingStation-threeDot-Menu">
+              &nbsp;&nbsp;<mat-slide-toggle>Stop-Start</mat-slide-toggle>&nbsp;<br>
+              &nbsp;&nbsp;<mat-slide-toggle [checked]="row.status === 'active' ? true : false" #toggleVal (change)="onToggleChange(row.status,row.id)">Inactive-Active</mat-slide-toggle>&nbsp;&nbsp;&nbsp;<br>
+              <div class="myStation-menu-setting" (click)="onClickedSetting(row.id)">
+                  <mat-icon>settings</mat-icon>
+                  <h4>Setting</h4>
+              </div>
+          </mat-menu> 
+      </td>
+  </ng-container>
+  
+  
+   <!-- <ng-container>
+      <th matColumnDef="total"><mat-icon style="color: rgb(14, 170, 209);">fiber_manual_record</mat-icon>Total</th>
+      <th matColumnDef="available"><mat-icon style="color: green;">fiber_manual_record</mat-icon>Available</th>
+      <th matColumnDef="inuse"><mat-icon style="color: rgb(255, 98, 41);">fiber_manual_record</mat-icon>Inuse</th>
+      <th matColumnDef="defective"><mat-icon  style="color: red">fiber_manual_record</mat-icon>Defective</th>
+  </ng-container> -->
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter</td>
+  </tr>
+
+</table>
+
+<mat-paginator [pageSizeOptions]="[6]" aria-label="Select page of users"></mat-paginator>
+
+  </mat-card-content>
+</mat-card>       
+
+
+<div class="back-button">
+        <button routerLink="/dashboard">Back</button>
+    </div>
+</div>

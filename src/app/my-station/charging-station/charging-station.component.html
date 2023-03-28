@@ -1,0 +1,96 @@
+<h1>My Station</h1>
+<div class="table-header-card tab-content">
+    <mat-card>
+        <mat-card-content>
+            <button mat-raised-button [matMenuTriggerFor]="bulkmenu">
+                <h5>Bulk</h5>
+                <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-menu #bulkmenu="matMenu" class="filter-charging-station">
+                <section class="filter-checkbox-section">
+                    <mat-checkbox>Start</mat-checkbox><br>
+                    <mat-checkbox>Stop</mat-checkbox><br>
+                    <mat-checkbox>Active</mat-checkbox><br>
+                    <mat-checkbox>Inactive</mat-checkbox>
+                  </section>
+                <div class="filter-close-button-section">
+                    <button class="filter-close-button">Reset</button>
+                    <span class="example-spacer"></span>
+                    <button class="filter-close-button">Apply</button>
+                </div>
+            </mat-menu>    
+            <span class="example-spacer"></span>
+            <button mat-raised-button [matMenuTriggerFor]="menu" >
+                <h5>Select Charging Station</h5>
+                <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" class="filter-charging-station">
+                <section class="filter-checkbox-section">
+                    <mat-checkbox>Virtuoso</mat-checkbox><br>
+                    <mat-checkbox>Seasons Mall</mat-checkbox><br>
+                    <mat-checkbox>World Trade Center</mat-checkbox>
+                  </section>
+                <div class="filter-close-button-section">
+                    <button class="filter-close-button">Close</button>
+                </div>
+            </mat-menu>    
+            <input placeholder="Search" class="searchbar" >
+        </mat-card-content>
+    </mat-card> 
+</div>
+<h4 class="charging-station-heading">Charging Station: Virtuoso</h4>
+<div class="table-content-card">
+    <mat-card>
+        <mat-card-content>
+            <table mat-table >
+                <tr>
+                    <th></th>
+                    <th>Charger Id</th>
+                    <th>Type</th>
+                    <th>Socket Type</th>
+                    <th>Status</th>
+                    <th>Usage</th>
+                    <th>Revenue</th>
+                  </tr>
+                  <tr>
+                    <td><mat-checkbox></mat-checkbox></td>
+                    <td>VC_00016</td>
+                    <td>Private</td>
+                    <td>Type 1</td>
+                    <td>Available</td>
+                    <td>9.51 kwh</td>
+                    <td>46000</td>
+                    <td><mat-icon class="vertical-menu-icon" [matMenuTriggerFor]="dotmenu">more_vert</mat-icon>
+                    <mat-menu #dotmenu="matMenu" class="chargingStation-threeDot-Menu">
+                        &nbsp;&nbsp;<mat-slide-toggle>Stop-Start</mat-slide-toggle>&nbsp;<br>
+                        &nbsp;&nbsp;<mat-slide-toggle>Active/Inactive</mat-slide-toggle>&nbsp;&nbsp;&nbsp;
+                    </mat-menu> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><mat-checkbox></mat-checkbox></td>
+                    <td>VC_00015</td>
+                    <td>Public</td>
+                    <td>CSS Type 1</td>
+                    <td>Inuse</td>
+                    <td>2.21 kwh</td>
+                    <td>90000</td>
+                    <td><mat-icon class="vertical-menu-icon" [matMenuTriggerFor]="dotmenu">more_vert</mat-icon>
+                        <mat-menu #dotmenu="matMenu" class="chargingStation-threeDot-Menu">
+                            &nbsp;&nbsp;<mat-slide-toggle>Stop-Start</mat-slide-toggle>&nbsp;<br>
+                            &nbsp;&nbsp;<mat-slide-toggle>Active/Inactive</mat-slide-toggle>&nbsp;&nbsp;&nbsp;
+                        </mat-menu> 
+                    </td>
+                  </tr>                  
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="myStation-back-button">
+        <h4 routerLink="/my-station">Back To My Station</h4>
+    </div>
+    
+    <div class="back-button">
+        <button routerLink="/dashboard">Back</button>
+    </div>
+</div>
