@@ -46,11 +46,11 @@
             <span class="example-spacer"></span>
             <div class="location-station-active">
                 <h4>Station is {{myStationData?.status}}</h4>
-                <button mat-raised-button class="station-button" *ngIf="!activeButton">
+                <button mat-raised-button class="station-button" *ngIf="myStationData.status === 'Inactive' ">
                     <mat-icon>power_on</mat-icon>
                     <h5>Active</h5>
                 </button>
-                <button mat-raised-button class="station-button" *ngIf="activeButton">
+                <button mat-raised-button class="station-button" *ngIf="myStationData.status === 'active' ">
                     <mat-icon>power_off</mat-icon>
                     <h5>Deactive</h5>
                 </button>

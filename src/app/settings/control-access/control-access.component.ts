@@ -11,7 +11,6 @@ import { MystationService } from 'src/app/service/mystation.service';
 export class ControlAccessComponent implements OnInit{
   stationId:any;
   myStationData:any;
-  activeButton:any;
 
   toppings = this.formBuilder.group({
     restaurant: false,
@@ -30,9 +29,6 @@ export class ControlAccessComponent implements OnInit{
       this.getMyStationUsingId(this.stationId);
     })
 
-    if(this.stationId.status === 'Inactive'){
-        this.activeButton = false;
-    }
   }
 
   getMyStationUsingId(id:any){

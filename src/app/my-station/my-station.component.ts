@@ -15,7 +15,7 @@ export class MyStationComponent implements OnInit{
   // myStationList:any;
   // toggleValue: boolean = false;
 
-  displayedColumns: string[] = ['id', 'station', 'location', 'address', 'type','status', 'usage', 'revenue','menu'];
+  displayedColumns: string[] = ['id', 'station', 'location', 'address', 'type','status', 'usage', 'revenue','charger','total','available','inuse','defective','menu'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -24,11 +24,7 @@ export class MyStationComponent implements OnInit{
   ngOnInit():void{
     this.getEmployeeInfo();
   }
-  constructor(private myStation:MystationService, private route:Router){
-    // this.myStation.getMyStationList().subscribe((result)=>{
-    //   this.myStationList = result;      
-    // })
-  }
+  constructor(private myStation:MystationService, private route:Router) {}
   
   getEmployeeInfo() {
     this.myStation.getMyStationList().subscribe({
@@ -57,5 +53,10 @@ export class MyStationComponent implements OnInit{
 
   onClickedSetting(stationId: any){
     this.route.navigate(['/settings/control-access', stationId]);
+  }
+
+  // creating function for directing to charger page
+  openChargerList(stationId: any){
+    this.route.navigate(['/charging-station'],stationId)
   }
 }

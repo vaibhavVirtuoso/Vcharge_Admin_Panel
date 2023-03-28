@@ -69,7 +69,7 @@ table {
     width: 100%;
     
 }
-.table-content-card{
+/* .table-content-card{
     margin-top: 5px;
 }
 .table-content-card th{
@@ -79,6 +79,7 @@ table {
 }
 .table-content-card td{
     font-size: 15px;
+    text-align: center;
 }
 .table-content-card th,td{
     text-align: center;
@@ -96,6 +97,15 @@ table {
 .table-button button:hover{
     background-color: rgb(26, 131, 167);
     color: black;
+} */
+.table-content-card th{
+    text-align: center;
+    padding: 0px;
+    font-weight: bold;
+}
+
+.table-content-card td{
+    text-align: center;
 }
 
 /* searchbar CSS */
@@ -126,7 +136,7 @@ table {
 
     display: flex;
     position: absolute;
-    bottom: 4%;
+    bottom: 2%;
     padding: 15px;
     color: #4ba5d3;
     border: 1px solid #4ba5d3;
