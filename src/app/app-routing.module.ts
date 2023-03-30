@@ -37,7 +37,7 @@ const routes: Routes = [
     component: MyStationComponent,
   },
   {
-    path:'my-station/charging-station',
+    path:'my-station/charging-station/:id',
     component: ChargingStationComponent,
   },
   {

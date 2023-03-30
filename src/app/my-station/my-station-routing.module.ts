@@ -4,7 +4,7 @@ import { ChargingStationComponent } from './charging-station/charging-station.co
 
 const routes: Routes = [
   {
-    path: 'charging-station',
+    path: 'charging-station/:id',
     component: ChargingStationComponent
   }
 ];

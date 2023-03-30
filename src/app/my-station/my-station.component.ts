@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { AddStationComponent } from './add-station/add-station.component';
 
 
 @Component({
@@ -15,18 +17,18 @@ export class MyStationComponent implements OnInit{
   // myStationList:any;
   // toggleValue: boolean = false;
 
-  displayedColumns: string[] = ['id', 'station', 'location', 'address', 'type','status', 'usage', 'revenue','charger','total','available','inuse','defective','menu'];
+  displayedColumns: string[] = ['id', 'station', 'location', 'type','status', 'usage', 'revenue','charger','total','available','inuse','defective','menu'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit():void{
-    this.getEmployeeInfo();
+    this.getStationInfo();
   }
-  constructor(private myStation:MystationService, private route:Router) {}
+  constructor(private myStation:MystationService, private route:Router,private dialog: MatDialog) {}
   
-  getEmployeeInfo() {
+  getStationInfo() {
     this.myStation.getMyStationList().subscribe({
       next: (res:any) => {
         this.dataSource = new MatTableDataSource(res);
@@ -46,7 +48,7 @@ export class MyStationComponent implements OnInit{
     }
     this.myStation.changeStation(status,id).subscribe((result:any)=>{
       if(result){
-        this.getEmployeeInfo();
+        this.getStationInfo();
       }
     });
   }
@@ -56,7 +58,12 @@ export class MyStationComponent implements OnInit{
   }
 
   // creating function for directing to charger page
-  openChargerList(stationId: any){
-    this.route.navigate(['/charging-station'],stationId)
+  openChargerList(id: any){
+    this.route.navigate(['my-station/charging-station',id]);
+  }
+
+  // add station dialog box
+  openAddStationDialog(){
+    const dialogRef = this.dialog.open(AddStationComponent)
   }
 }
