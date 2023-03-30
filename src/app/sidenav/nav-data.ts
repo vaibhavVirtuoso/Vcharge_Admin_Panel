@@ -1,10 +1,10 @@
 import { INavbarData } from "./helper";
 
-export const navbarData:INavbarData[] = [
+export const navbarData:INavbarData[] = [                //array to store the list of menu of sidenav
     {
-        routeLink: 'dashboard',
-        icon: 'fas fa-home',
-        label: 'Dashboard'
+        routeLink: 'dashboard',                         //routing link 
+        icon: 'fas fa-home',                            // icon 
+        label: 'Dashboard'                              //label
     },
     {
         routeLink: 'my-station',
@@ -41,7 +41,7 @@ export const navbarData:INavbarData[] = [
         icon: 'fas fa-cog',
         label: 'Settings',
         expanded:true,
-        items:[
+        items:[                                             //sublevel  menu list
             {
                 routeLink:'settings/accountSetting',
                 label: 'Account Setting'

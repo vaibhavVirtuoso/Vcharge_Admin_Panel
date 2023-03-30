@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Chart} from 'chart.js';
+import {Chart} from 'chart.js';       //imported from chart.js for displaying the chart and graphs 
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +8,12 @@ import {Chart} from 'chart.js';
 })
 export class DashboardComponent implements OnInit {
     selectedOption: string = '';
-    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];  //used in dropdown for selecting month to show booking data of that particular month
 
     
   ngOnInit(){
+
+// this the data for displaying the chart and graph on the html    
 //     var myChart = new Chart("myChart", {
 //       type: 'bar',
 //       data: {

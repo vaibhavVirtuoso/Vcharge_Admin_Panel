@@ -1,4 +1,5 @@
 <h1>My Station</h1>
+<!-- table header section for button and filters -->
 <div class="table-header-card tab-content">
     <mat-card>
         <mat-card-content>
@@ -6,17 +7,18 @@
                 <h5>Bulk</h5>
                 <mat-icon>expand_more</mat-icon>
             </button>
-            <mat-menu #bulkmenu="matMenu" class="filter-charging-station">
+            <mat-menu #bulkmenu="matMenu" class="filter-charger">
                 <section class="filter-checkbox-section">
                     <mat-checkbox>Start</mat-checkbox><br>
                     <mat-checkbox>Stop</mat-checkbox><br>
                     <mat-checkbox>Active</mat-checkbox><br>
                     <mat-checkbox>Inactive</mat-checkbox>
                   </section>
-                <div class="filter-close-button-section">
-                    <button class="filter-close-button">Reset</button>
+                  <!--  filter-close-button-section -> filter-button-section,  filter-close-button -> filter-button -->
+                <div class="filter-button-section">  
+                    <button class="filter-button">Reset</button>  
                     <span class="example-spacer"></span>
-                    <button class="filter-close-button">Apply</button>
+                    <button class="filter-button">Apply</button>
                 </div>
             </mat-menu>    
             <span class="example-spacer"></span>
@@ -24,14 +26,14 @@
                 <h5>Select Charging Station</h5>
                 <mat-icon>expand_more</mat-icon>
             </button>
-            <mat-menu #menu="matMenu" class="filter-charging-station">
+            <mat-menu #menu="matMenu" class="filter-charger">
                 <section class="filter-checkbox-section">
                     <mat-checkbox>Virtuoso</mat-checkbox><br>
                     <mat-checkbox>Seasons Mall</mat-checkbox><br>
                     <mat-checkbox>World Trade Center</mat-checkbox>
                   </section>
-                <div class="filter-close-button-section">
-                    <button class="filter-close-button">Close</button>
+                <div class="filter-button-section">
+                    <button class="filter-button">Close</button>
                 </div>
             </mat-menu>    
             <input placeholder="Search" class="searchbar" >
@@ -84,7 +86,7 @@
                   </tr>                  
             </table> -->
         
-        <!-- using mat-table -->
+<!-- using mat-table for display list of charger list for particular station-->
 <table mat-table [dataSource]="dataSource" matSort>
   
     <ng-container matColumnDef="id">

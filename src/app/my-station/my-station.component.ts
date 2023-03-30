@@ -14,47 +14,46 @@ import { AddStationComponent } from './add-station/add-station.component';
   styleUrls: ['./my-station.component.css']
 })
 export class MyStationComponent implements OnInit{
-  // myStationList:any;
-  // toggleValue: boolean = false;
 
   displayedColumns: string[] = ['id', 'station', 'location', 'type','status', 'usage', 'revenue','charger','total','available','inuse','defective','menu'];
   dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;  // for using paginator
+  @ViewChild(MatSort) sort!: MatSort;                 // for using sort in columns
 
   ngOnInit():void{
-    this.getStationInfo();
+    this.getStationInfo();                            
   }
   constructor(private myStation:MystationService, private route:Router,private dialog: MatDialog) {}
   
-  getStationInfo() {
-    this.myStation.getMyStationList().subscribe({
-      next: (res:any) => {
-        this.dataSource = new MatTableDataSource(res);
+  getStationInfo() {                                 // this function calling getMyStation() which is defined
+    this.myStation.getMyStationList().subscribe({    // in myStation service which will get all station and will
+      next: (res:any) => {                           // return to this as res 
+        this.dataSource = new MatTableDataSource(res); //sending res data into datasource
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
       },
-      error: (err) => {
+      error: (err) => {                              // for consoling error
         console.log(err)
       }
     })
   }
-  onToggleChange(status:any,id:any):void{
-    if(status == 'active'){
+
+  onToggleChange(status:any,id:any):void{          //this function do changes in status field in database when
+    if(status == 'active'){                        //we change the status in website using toggle button
       status = 'Inactive';
     }else{
       status = 'active';
     }
     this.myStation.changeStation(status,id).subscribe((result:any)=>{
       if(result){
-        this.getStationInfo();
+        this.getStationInfo();                      //for updating the list
       }
     });
   }
 
-  onClickedSetting(stationId: any){
-    this.route.navigate(['/settings/control-access', stationId]);
+  onClickedSetting(stationId: any){                                //redirect to control access page by sending
+    this.route.navigate(['/settings/control-access', stationId]);  //the id of that specific station
   }
 
   // creating function for directing to charger page
@@ -62,7 +61,7 @@ export class MyStationComponent implements OnInit{
     this.route.navigate(['my-station/charging-station',id]);
   }
 
-  // add station dialog box
+  // opens add station dialog box
   openAddStationDialog(){
     const dialogRef = this.dialog.open(AddStationComponent)
   }

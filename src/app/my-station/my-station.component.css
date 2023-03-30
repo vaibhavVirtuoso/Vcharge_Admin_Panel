@@ -1,6 +1,8 @@
+/* menu button column CSS */
 .menu-col{
     border: none;
 }
+/* setting button in menu dropdown CSS */
 .myStation-menu-setting{
     display: flex;
     padding: 12px 10px 0px 10px;

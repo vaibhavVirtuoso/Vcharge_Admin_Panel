@@ -14,6 +14,7 @@ interface SideNavToggle{
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css'],
   animations: [
+    // animation for cross rotation in sidenav bar
     trigger('rotate',[
       transition(':enter',[
         animate('1000ms',
@@ -31,27 +32,29 @@ export class SidenavComponent implements OnInit {
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
-  navData = navbarData;
+  navData = navbarData;                 //accessing the data from nav-data.ts file where all the information is stored about the sidenav menu list
   multiple: boolean =false;
-
   //@HostListener
 
   constructor(private router:Router) {}
 
   ngOnInit():void{
-    this.screenWidth = window.innerWidth; // to shift the inner body of sidebar 
+    this.screenWidth = window.innerWidth;     // to shift the inner body of sidebar 
   }
 
+  // collapse and expansion of sidenav bar
   toggleCollapse(){
     this.collapsed = !this.collapsed;
     this.onToggleSideNav.emit({collapsed: this.collapsed,screenWidth: this.screenWidth})
   }
 
+  // to close the sidenav bar
   closeSidenav(){
     this.collapsed = false;
     this.onToggleSideNav.emit({collapsed: this.collapsed,screenWidth: this.screenWidth})
   }
 
+  //handling click of sidenav menu list
   handleClick(item: INavbarData):void{
     if(!this.multiple){
       for(let modelItem of this.navData){
@@ -60,9 +63,10 @@ export class SidenavComponent implements OnInit {
         }
       }
     }
-    item.expanded = !item.expanded
+    item.expanded = !item.expanded    // for making sidenav menu true and false
   }
 
+  // adding class="active" CSS to component which is active 
   getActiveClass(data: INavbarData):string{
     return this.router.url.includes(data.routeLink)? 'active' : '';
   }

@@ -5,7 +5,7 @@ import { INavbarData } from './helper';
 
 @Component({
   selector: 'app-sublevel-menu',
-  template: `
+  template: `  <!-- inline html  code for sub-level menu list (account,security,payment,etc) -->
     <ul *ngIf="collapsed && data.items && data.items.length > 0" 
     
     [@submenu]="expanded 
@@ -34,6 +34,7 @@ import { INavbarData } from './helper';
       routerLinkActive="active-sublevel"
       [routerLinkActiveOptions]="{exact:true}"
     >
+    <!--html code for sublevel-menu list label -->
     <i class="sublevel-link-icon fa fa-circle"></i>
     <span class="sublevel-link-text" *ngIf="collapsed">{{item.label}}</span>
     </a>
@@ -79,6 +80,7 @@ export class SublevelMenuComponent {
   @Input() expanded: boolean | undefined;
   @Input() multiple: boolean = false;
 
+  // handing the click for sublevel menu list
   handleClick(item:any):void{
     if(!this.multiple){
       if(this.data.items && this.data.items.length > 0){
@@ -89,9 +91,10 @@ export class SublevelMenuComponent {
         }
       }
     }
-    item.expanded = !item.expanded;
+    item.expanded = !item.expanded;            // for making sidenav menu true and false
   }
 
+  // adding class="active-sublevel" CSS to sub-component which is active 
   getActiveClass(item:INavbarData):string{
     return item.expanded && this.router.url.includes(item.routeLink)? 'active-sublevel' : '';
   }
