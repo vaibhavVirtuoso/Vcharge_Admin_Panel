@@ -43,6 +43,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 
 @NgModule({
@@ -63,7 +64,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ProfileComponent,
     ChargingStationComponent,
     BankDetailsComponent,
-    AddStationComponent
+    AddStationComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +90,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

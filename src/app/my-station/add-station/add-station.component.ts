@@ -13,12 +13,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AddStationComponent {
   addStation:FormGroup;
   amenities: Array<any> = [
-    {name:'Restroom',value: 'Restroom' },
-    {name:'Cafe',value: 'Cafe' },
+    {name:'WiFi',value: 'WiFi' },
+    {name:'Restaurants',value: 'Restaurants' },
     {name:'Telephone',value: 'Telephone' },
-    {name:'Bar',value: 'Bar' }
+    {name:'Garden',value: 'Garden' },
+    {name:'Restroom',value: 'Restroom' },
+    {name:'EV accessary store',value: 'EV accessary store' },
+    {name:'Car Wash',value: 'Car Wash' },
   ];
-
+  powerStation =[
+    "IS-17017",
+    "IS-27017",
+    "IS-37017",
+    "IS-47017",
+    "IS-57017",
+  ]
+  parkingType =[
+    "Private",
+    "Public"
+  ]
   constructor(private formBuilder: FormBuilder,private myStation:MystationService,private dialogRef: MatDialogRef<AddStationComponent>, @Inject(MAT_DIALOG_DATA) public data: any,private snackBar:MatSnackBar) {
     this.addStation = this.formBuilder.group({
       stationName: '',
