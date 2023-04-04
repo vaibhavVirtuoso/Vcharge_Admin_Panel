@@ -14,8 +14,12 @@ import { AddStationComponent } from './add-station/add-station.component';
 })
 export class MyStationComponent implements OnInit{
 
-  displayedColumns: string[] = ['id', 'station', 'location', 'type','status', 'usage', 'revenue','charger','total','available','inuse','defective','menu'];
+  displayedColumns: string[] = ['id', 'station', 'location', 'type','status', 'revenue','charger','total','available','inuse','defective','menu'];
   dataSource!: MatTableDataSource<any>;
+  totalNoOfChargers: number = 0;
+  availableChargers: number = 0;
+  inuseChargers: number = 0;
+  outOffOrderChargers: number = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;  // for using paginator
   @ViewChild(MatSort) sort!: MatSort;                 // for using sort in columns
@@ -25,12 +29,23 @@ export class MyStationComponent implements OnInit{
   }
   constructor(private myStation:MystationService, private route:Router,private dialog: MatDialog) {}
   
-  getStationInfo() {                                 // this function calling getMyStation() which is defined
-    this.myStation.getMyStationList().subscribe({    // in myStation service which will get all station and will
-      next: (res:any) => {                           // return to this as res 
+  getStationInfo() {                                      // this function calling getMyStation() which is defined
+    this.myStation.getMyStationList().subscribe({        // in myStation service which will get all station and will      
+      next: (res:any) => {                              // return to this as res 
         this.dataSource = new MatTableDataSource(res); //sending res data into datasource
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+
+        // count data of charger from database
+        this.dataSource.data = res.map((station: { chargers: any[]; }) => ({
+          ...station,
+          // totalNoOfChargers: station.chargers.length,
+          availableChargers: station.chargers.filter((chargers: { active: boolean; }) => chargers.active == true).length,
+          inuseChargers: station.chargers.filter((chargers: { active: boolean; }) => chargers.active == false).length,
+          outOffOrderChargers: station.chargers.filter((chargers: { active: boolean; }) => chargers.active == false).length
+          
+        }));
+        
       },
       error: (err) => {                              // for consoling error
         console.log(err)
@@ -39,11 +54,12 @@ export class MyStationComponent implements OnInit{
   }
 
   onToggleChange(status:any,id:any):void{          //this function do changes in status field in database when
-    if(status == 'active'){                        //we change the status in website using toggle button
-      status = 'Inactive';
+    if(status == 'Available'){                        //we change the status in website using toggle button
+      status = 'Unavailable';
     }else{
-      status = 'active';
+      status = 'Available';
     }
+    
     this.myStation.changeStation(status,id).subscribe((result:any)=>{
       if(result){
         this.getStationInfo();                      //for updating the list

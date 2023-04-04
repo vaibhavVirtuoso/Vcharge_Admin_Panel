@@ -11,9 +11,9 @@
                     <h5>Manage</h5>
                 </button>
             </div>
-            <input [placeholder]="myStationData?.location" disabled/><br>
+            <input [placeholder]="myStationData?.stationLocation" disabled/><br>
             <label>Address</label><br>
-            <input [placeholder]="myStationData?.address" disabled/><br>
+            <input [placeholder]="myStationData?.stationLocation" disabled/><br>
             <div class="location-name">
                 <label>Working Hours</label>
                 <span class="example-spacer"></span>
@@ -45,12 +45,12 @@
             </div>
             <span class="example-spacer"></span>
             <div class="location-station-active">
-                <h4>Station is {{myStationData?.status}}</h4>
-                <button mat-raised-button class="station-button" *ngIf="myStationData.status === 'Inactive' ">
+                <h4>Station is {{myStationData?.stationStatus}}</h4>
+                <button mat-raised-button class="station-button" *ngIf="myStationData.stationStatus === 'Unavailable' ">
                     <mat-icon>power_on</mat-icon>
                     <h5>Active</h5>
                 </button>
-                <button mat-raised-button class="station-button" *ngIf="myStationData.status === 'active' ">
+                <button mat-raised-button class="station-button" *ngIf="myStationData.stationStatus === 'Available' ">
                     <mat-icon>power_off</mat-icon>
                     <h5>Deactive</h5>
                 </button>
@@ -72,7 +72,7 @@
                     <h5>Manage</h5>
                 </button>
             </div>
-        <input [placeholder]="myStationData?.station" disabled /><br>
+        <input [placeholder]="myStationData?.stationName" disabled /><br>
         <div>
             <label>Station Type</label>
             <span class="example-spacer"></span>
@@ -80,7 +80,7 @@
         <div class="stationSetting-type">
             <h5>Public/Private</h5>
             <span class="example-spacer"></span>
-            <mat-slide-toggle [checked]="myStationData?.type === 'private' ? true : false"></mat-slide-toggle>
+            <mat-slide-toggle [checked]="myStationData?.stationParkingType === 'Private' ? true : false"></mat-slide-toggle>
         </div>
         </div>
         <div class="stationSetting-map-photo">

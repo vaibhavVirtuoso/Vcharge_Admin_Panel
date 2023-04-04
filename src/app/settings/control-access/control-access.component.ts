@@ -25,15 +25,16 @@ export class ControlAccessComponent implements OnInit{
 
   ngOnInit():void{
     this.activeRoute.params.subscribe(params => {
-      this.stationId =params['id'];      
+      this.stationId =  params['id'];      
       this.getMyStationUsingId(this.stationId);
     })
 
   }
 
-  getMyStationUsingId(id:any){
+  getMyStationUsingId(id:any){    
     this.myStation.getStationById(id).subscribe((result)=>{
       this.myStationData = result;
+      console.warn(this.myStationData);
     })
   }
 }
