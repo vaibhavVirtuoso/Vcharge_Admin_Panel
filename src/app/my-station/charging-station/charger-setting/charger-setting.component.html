@@ -1,0 +1,88 @@
+<h1>Charger Settings</h1>
+
+<form >
+    <div mat-dialog-content>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Station Name</mat-label>
+                <input matInput type="text" placeholder="Ex: Virtuoso charging station" formControlName="stationName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Station Location</mat-label>
+                <input matInput type="text" placeholder="Ex: Pune" formControlName="stationLocation">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Station Latitude</mat-label>
+                <input matInput type="email" placeholder="Ex: 18.5542818" formControlName="stationLatitude">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Station Longitude</mat-label>
+                <input matInput type="text" placeholder="Ex: 73.923676" formControlName="stationLongitude">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Station Location URL</mat-label>
+                <input matInput type="text" placeholder="URL" formControlName="stationLocationURL">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Station Parking Area</mat-label>
+                <input matInput type="text" placeholder="Ex: 150sqft" formControlName="stationParkingArea">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Station Contact Number</mat-label>
+                <input matInput type="text" placeholder="Ex: +919876543210" formControlName="stationContactNumber">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-radio-group aria-label="Select an option" formControlName="stationStatus">
+                <mat-label><b>Station Status</b></mat-label>
+                <mat-radio-button value="Available">Available</mat-radio-button>
+                <mat-radio-button value="Unavailable">Unavailable</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Station Power Standard</mat-label>
+                <mat-select formControlName="stationPowerStandard">
+                    <mat-option >
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Station Working Time</mat-label>
+                <input matInput type="text" placeholder="Ex: 9:00 AM - 10:00 PM" formControlName="stationWorkingTime">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Station Parking Type</mat-label>
+                <mat-select formControlName="stationParkingType">
+                    <mat-option>
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-label><b>Station Amenity</b></mat-label>
+        </div>
+
+    </div>
+
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button class="form-button" type="button" mat-dialog-close="false">Cancel</button>
+        <button mat-raised-button class="form-button" type="submit">Submit</button>
+    </div>
+
+</form>

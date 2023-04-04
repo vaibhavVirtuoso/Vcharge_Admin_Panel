@@ -2,14 +2,3 @@
 .menu-col{
     border: none;
 }
-/* setting button in menu dropdown CSS */
-.myStation-menu-setting{
-    display: flex;
-    padding: 12px 10px 0px 10px;
-    cursor: pointer;
-}
-.myStation-menu-setting h4{
-    margin-left: 18px;
-    font-size: 14px;
-    margin-bottom: 0px;
-}

@@ -29,7 +29,7 @@ export class ChargingStationComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe(params => {
-      this.stationId =params['id'];        
+      this.stationId =params['stationId'];        
       this.getChargerListById(this.stationId);      //to get the charger list of particular station using charger service
       // this.getStationNamebyId(this.stationId);     //to get station name from station service
      })
@@ -61,7 +61,7 @@ export class ChargingStationComponent implements OnInit {
 
   // redirecting to connector page 
   openConnector(chargerId: any){
-    this.route.navigate(['',chargerId]);
+    this.route.navigate([`my-station/charging-station/${this.stationId}/connector`,chargerId]);
   }
 
   // getStationNamebyId(id: any){
@@ -73,4 +73,9 @@ export class ChargingStationComponent implements OnInit {
   //     }
   //   })
   // }
+
+  // open charger setting page
+  openChargerSetting(id: any){
+    this.route.navigate(['charger-setting', id]);
+  }
 }

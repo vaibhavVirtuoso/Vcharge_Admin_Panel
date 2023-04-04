@@ -16,7 +16,10 @@ import { DownloadsComponent } from './downloads/downloads.component';
 import { SupportStatusComponent } from './support-status/support-status.component';
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { HeaderComponent } from './header/header.component';
-import {AddStationComponent} from './my-station/add-station/add-station.component'
+import {AddStationComponent} from './my-station/add-station/add-station.component';
+import {ConnectorsComponent} from './my-station/charging-station/connectors/connectors.component';
+import {ChargerSettingComponent} from './my-station/charging-station/charger-setting/charger-setting.component'
+import {ConnectorSettingComponent} from './my-station/charging-station/connectors/connector-setting/connector-setting.component'
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -65,6 +68,9 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     ChargingStationComponent,
     BankDetailsComponent,
     AddStationComponent,
+    ConnectorsComponent,
+    ChargerSettingComponent,
+    ConnectorSettingComponent
   ],
   imports: [
     BrowserModule,
