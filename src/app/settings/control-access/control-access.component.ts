@@ -21,6 +21,11 @@ export class ControlAccessComponent implements OnInit{
     grocery:false
   });
 
+  apiAmenities: string[] = [];
+  additionalAmenities: string[] =  ['gym'];
+  allAmenities: string[] = [];
+  selectedAmenities: string[] = [];
+
   constructor(private formBuilder:FormBuilder,private activeRoute:ActivatedRoute, private myStation:MystationService) {}
 
   ngOnInit():void{
@@ -31,10 +36,14 @@ export class ControlAccessComponent implements OnInit{
 
   }
 
+  // get station details by stationId 
   getMyStationUsingId(id:any){    
     this.myStation.getStationById(id).subscribe((result)=>{
       this.myStationData = result;
-      console.warn(this.myStationData);
+      this.apiAmenities = this.myStationData.stationAmenity;
+      this.allAmenities = this.additionalAmenities.concat(this.apiAmenities);
+      this.selectedAmenities = this.apiAmenities;
     })
-  }
+}
+
 }

@@ -11,4 +11,8 @@ export class ChargersService {
   getChargerAllList(stationId: any){    
     return this.http.get(`http://192.168.0.43:8081/vst1/manageStation/getStationChargers?stationId=${stationId}`);
   }
+
+  getChargerById(ChargerId: any){
+    return this.http.get('');
+  }
 }

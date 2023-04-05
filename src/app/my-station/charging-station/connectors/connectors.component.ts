@@ -4,6 +4,7 @@ import { ConnectorsService } from 'src/app/service/connector/connectors.service'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-connectors',
@@ -13,11 +14,12 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ConnectorsComponent implements OnInit{
   stationId: any;
   chargerId: any;
+  openForm:boolean = false;
 
   displayedColumns: string[] = [ 'connectorNumber', 'connectorType','connectorSocket','connectorStatus','connectorOutputPower', 'menu'];
   dataSource!: MatTableDataSource<any>;
 
-  constructor(private activeRoute: ActivatedRoute,private connector:ConnectorsService,private route:Router){}
+  constructor(private activeRoute: ActivatedRoute,private connector:ConnectorsService,private route:Router,private dialog:MatDialog){}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -54,6 +56,15 @@ export class ConnectorsComponent implements OnInit{
         console.log(err)
       }
     })
+  }
+
+  onUpdateConnector(){
+    console.warn("Update");
+    
+  }
+
+  onDeleteConnector(){
+    console.warn("delete");
   }
 
   openConnectorSetting(id: any){

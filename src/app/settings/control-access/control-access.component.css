@@ -48,7 +48,7 @@
 }
 .location-info input::placeholder{
     font-size: 14px;
-    
+    color: black;
 }
 /* checkbox CSS */
 .checkbox-section p {
@@ -127,7 +127,7 @@
 }
 .stationSetting-info input::placeholder{
     font-size: 14px;
-    
+    color: black;
 }
 
 /* Station Type */

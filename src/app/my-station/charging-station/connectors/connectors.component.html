@@ -1,5 +1,16 @@
 <h1>Connector</h1>
 <h4>Charger Name: </h4>
+<div class="table-header-card tab-content">
+  <mat-card>
+      <mat-card-content>
+          <span class="example-spacer"></span>
+          <button mat-raised-button >
+              <mat-icon aria-hidden="false" aria-label="Example download icon" fontIcon="add"></mat-icon>
+              <h5>Add</h5>
+          </button>
+      </mat-card-content>
+    </mat-card> 
+</div>
 
 <div class="table-content-card">
     <mat-card>
@@ -34,21 +45,14 @@
       </ng-container>
   
     <ng-container matColumnDef="menu">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header  class="menu-col"></th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header  class="menu-col">Action</th>
         <td mat-cell *matCellDef="let row">
-            <mat-icon class="vertical-menu-icon" [matMenuTriggerFor]="dotmenu">more_vert</mat-icon>
-            <mat-menu #dotmenu="matMenu" class="chargingStation-threeDot-Menu">
-                &nbsp;&nbsp;<mat-slide-toggle>Stop-Start</mat-slide-toggle>&nbsp;<br>
-                &nbsp;&nbsp;<mat-slide-toggle >Inactive-Active</mat-slide-toggle>&nbsp;&nbsp;&nbsp;
-                <div class="myStation-menu-setting" (click)="openConnectorSetting(row.connectorId)">
-                  <mat-icon>settings</mat-icon>
-                  <h4>Setting</h4>
-              </div>
-            </mat-menu> 
+            <mat-icon class="vertical-menu-icon" style="color: rgb(21, 99, 112); margin-right: 20px;" (click)="onUpdateConnector()">edit</mat-icon> 
+            <mat-icon class="vertical-menu-icon" style="color: red;" (click)="onDeleteConnector()">delete</mat-icon>
         </td>
     </ng-container>
   
-  <tr mat-header-row *matHeaderRowDef="[ 'connectorNumber', 'connectorType','connectorSocket','connectorStatus','connectorOutputPower']"></tr> <!-- display these column in the 1st row -->
+  <tr mat-header-row *matHeaderRowDef="[ 'connectorNumber', 'connectorType','connectorSocket','connectorStatus','connectorOutputPower','menu']"></tr> <!-- display these column in the 1st row -->
   <tr mat-row *matRowDef="let row; columns: [ 'connectorNumber', 'connectorType','connectorSocket','connectorStatus','connectorOutputPower', 'menu']"></tr> <!--display value -->
   
   </table>
@@ -67,3 +71,7 @@
     </div>
 </div>
 
+<!-- Add connector form -->
+<div mat-dialog-title>
+  <h2>Add Connector</h2>
+</div>

@@ -9,6 +9,7 @@ export class MystationService {
 
   constructor(private http:HttpClient) { }
 
+  //give complete list of station
   getMyStationList(){
     return this.http.get('http://192.168.0.43:8081/vst1/manageStation/stations');
   }
@@ -18,8 +19,9 @@ export class MystationService {
     return this.http.patch('http://192.168.0.43:8081/vst1/manageStation/stations/?stationId='+id,{"stationStatus": data});
   }
 
+  // give complete list of station using stationId
   getStationById(id: any){
-    return this.http.get('http://192.168.0.43:8081/vst1/manageStation/stations?stationId='+id);
+    return this.http.get(`http://192.168.0.43:8081/vst1/manageStation/getStationByStationId?stationId=${id}`);
   }
 
   //for adding the station in staionlist
