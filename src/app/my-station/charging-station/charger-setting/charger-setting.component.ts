@@ -11,8 +11,9 @@ import { ChargersService } from 'src/app/service/charger/chargers.service';
 export class ChargerSettingComponent implements OnInit{
   chargerSetting:any;
   chargerId: any;
-  isChecked = true;
+  isChecked = false;
   chargerData: any;
+  chargerFormData: any;
 
   constructor(private activeRoute: ActivatedRoute,private formbuilder:FormBuilder,private charger:ChargersService) {
     this.chargerSetting = this.formbuilder.group({
@@ -35,20 +36,26 @@ export class ChargerSettingComponent implements OnInit{
 
   ngOnInit(): void {
       this.chargerId = this.activeRoute.snapshot.paramMap.get('chargerId');
-      this.chargerDetailsUsingId(this.chargerId);
-      this.chargerSetting.patchValue(this.chargerData)
+      this.chargerDetailsUsingId(this.chargerId);      
   }
 
   chargerDetailsUsingId(id: any){
-    this.charger.getChargerById(id);
+    this.charger.getChargerById(id).subscribe((result)=>{      
+      this.chargerFormData = result;
+      this.chargerSetting.patchValue(this.chargerFormData)
+      
+    })
   }
 
   closeUpdateCharger(){
     this.isChecked = false;
   }
 
-  onFormSubmit(){
-
+  updateChargerForm(){
+    this.charger.updateCharger(this.chargerId,this.chargerSetting.value).subscribe((result)=>{
+      console.warn(result);
+      
+    })
   }
 
 }

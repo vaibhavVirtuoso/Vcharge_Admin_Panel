@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+import { ConnectorSettingComponent } from './connector-setting/connector-setting.component';
 
 @Component({
   selector: 'app-connectors',
@@ -30,7 +31,7 @@ export class ConnectorsComponent implements OnInit{
         this.chargerId = this.activeRoute.snapshot.paramMap.get('chargerId');
         console.warn(this.stationId);
         console.warn(this.chargerId);
-        this.getConnectorUsingIds(this.stationId,this.chargerId)
+        this.getConnectorUsingIds(this.stationId,this.chargerId);
   }
 
   getConnectorUsingIds(stationById: any,chargerById: any){
@@ -58,13 +59,29 @@ export class ConnectorsComponent implements OnInit{
     })
   }
 
-  onUpdateConnector(){
-    console.warn("Update");
+  onUpdateConnector(data: any){
+    const dialogRef = this.dialog.open(ConnectorSettingComponent,{
+      data,
+    })
+
+    dialogRef.afterClosed().subscribe({
+      next: (val:any) => {
+        if(val){
+          this.getConnectorUsingIds(this.stationId,this.chargerId);
+        }
+      }
+    })
     
   }
 
   onDeleteConnector(){
     console.warn("delete");
+
+  }
+
+  openDialogBox(){
+    const dialogRef =this.dialog.open(ConnectorSettingComponent,{
+    })
   }
 
   openConnectorSetting(id: any){

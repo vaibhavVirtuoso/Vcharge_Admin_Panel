@@ -1,10 +1,10 @@
 <h1>Charger Settings</h1>
 <div class="edit-option">
-    <h4>Edit Charger Setting </h4>
+    <h4>Change Charger Setting </h4>
     <mat-slide-toggle [(ngModel)]="isChecked"></mat-slide-toggle>
 </div>
 <div class="charger-setting-page">
-<form [formGroup]="chargerSetting" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="chargerSetting" (ngSubmit)="updateChargerForm()">
             <div mat-dialog-content>
                 <div class="row">
                     <mat-form-field appearance="outline">

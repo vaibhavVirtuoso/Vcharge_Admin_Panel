@@ -15,6 +15,7 @@ export class ChargingStationComponent implements OnInit {
   stationId: any;
   stationName: any;
   chargerListData: any;
+  selectedItem: any;
 
   constructor(private activeRoute:ActivatedRoute,private charger:ChargersService, private myStation:MystationService,private route:Router ) {}
 
@@ -75,7 +76,7 @@ export class ChargingStationComponent implements OnInit {
   // }
 
   // open charger setting page
-  openChargerSetting(id: any){
-    this.route.navigate(['charger-setting', id]);
+  openChargerSetting(data: any){
+    this.route.navigate(['charger-setting',data.chargerId]);
   }
 }
