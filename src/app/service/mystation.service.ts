@@ -14,9 +14,9 @@ export class MystationService {
     return this.http.get('http://192.168.0.43:8081/vst1/manageStation/stations');
   }
 
-  // not working as patch service of this not created
+  // not working as patch service of this is not created
   changeStation(data: any,id: any){
-    return this.http.patch('http://192.168.0.43:8081/vst1/manageStation/stations/?stationId='+id,{"stationStatus": data});
+    return this.http.patch(''+id,{"stationStatus": data});
   }
 
   // give complete list of station using stationId

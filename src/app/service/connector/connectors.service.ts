@@ -13,9 +13,9 @@ export class ConnectorsService {
     return this.http.get(`http://192.168.0.43:8081/vst1/manageStation/getStationChargersConnector?stationId=${stationId}&chargerId=${chargerId}`)
   }
 
-  // get connector by connectorId
+  // get connector information by connectorId
   getConnectorById(chargerId: any){
-    return this.http.get(` http://192.168.0.43:8081/vst1/manageStation/getConnectorId?connectorId=${chargerId}`);
+    return this.http.get(`http://192.168.0.43:8081/vst1/manageStation/getConnectorId?connectorId=${chargerId}`);
   }
 
   // adding connectors data
