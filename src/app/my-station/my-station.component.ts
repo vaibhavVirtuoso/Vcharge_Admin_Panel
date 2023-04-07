@@ -14,7 +14,7 @@ import { AddStationComponent } from './add-station/add-station.component';
 })
 export class MyStationComponent implements OnInit{
 
-  displayedColumns: string[] = ['id', 'station', 'location', 'type','status', 'revenue','charger','total','available','inuse','defective','menu'];
+  displayedColumns: string[] = ['id', 'station', 'location', 'type','status','charger','total','available','inuse','defective','menu'];
   dataSource!: MatTableDataSource<any>;
   totalNoOfChargers: number = 0;
   availableChargers: number = 0;

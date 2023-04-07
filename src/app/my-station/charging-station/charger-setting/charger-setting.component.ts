@@ -29,7 +29,6 @@ export class ChargerSettingComponent implements OnInit{
       chargerIPRating: '',
       chargerMountType: '',
       chargerSerialNumber: ''
-
     })
   }
   
