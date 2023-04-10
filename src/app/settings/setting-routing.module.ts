@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ControlAccessComponent } from './control-access/control-access.component';
 import { NotificationSettingComponent } from './notification-setting/notification-setting.component';
 import { PaymentSettingComponent } from './payment-setting/payment-setting.component';
 import { SecuritySettingComponent } from './security-setting/security-setting.component';
@@ -14,10 +13,6 @@ const routes: Routes = [
   {
     path: 'securitySetting',
     component: SecuritySettingComponent
-  },
-  {
-    path: 'control-access/:id',
-    component: ControlAccessComponent
   },
   {
     path: 'paymentSetting',

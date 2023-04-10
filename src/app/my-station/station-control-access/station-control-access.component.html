@@ -13,7 +13,7 @@
             </div>
             <input [placeholder]="myStationData?.stationLocation" /><br>
             <label>Address</label><br>
-            <input [placeholder]="myStationData?.stationLocation" disabled/><br>
+            <input [placeholder]="myStationData?.stationLocation" disabled /><br>
             <div class="location-name">
                 <label>Working Hours</label>
                 <span class="example-spacer"></span>
@@ -23,31 +23,19 @@
                 </button>
             </div>
             <div class="working-hours">
-                <input  [placeholder]="myStationData?.stationWorkingTime" /><br>
+                <input [placeholder]="myStationData?.stationWorkingTime" /><br>
             </div>
         </div>
         <div class="location-amenities-active">
             <div class="location-amenitites">
                 <h3>Amenities</h3>
-                <div *ngFor="let amenity of allAmenities">
+                <div *ngFor="let amenity of apiAmenities">
                     <label>
-                      <input type="checkbox" [value]="amenity" [(ngModel)]="apiAmenities" [checked]="apiAmenities.includes(amenity)">
-                      {{ amenity }}
+                        <input type="checkbox" [value]="amenity" [(ngModel)]="apiAmenities"
+                            [checked]="apiAmenities.includes(amenity)">
+                        {{ amenity }}
                     </label>
-                  </div>
-                <!-- <section class="checkbox-section" [formGroup]="toppings">
-                    <h4>Select Amenities:</h4>
-                    <p><mat-checkbox formControlName="restaurant">Restaurant</mat-checkbox></p>
-                    <p><mat-checkbox formControlName="rark">Park</mat-checkbox></p>
-                    <p><mat-checkbox formControlName="hotel">Hotel</mat-checkbox></p>
-                    <p><mat-checkbox formControlName="shoppingMall">Shopping Mall</mat-checkbox></p>
-                    <p><mat-checkbox formControlName="cinema">Cinema</mat-checkbox></p>
-                    <p><mat-checkbox formControlName="grocery">Grocery</mat-checkbox></p>
-                  </section> -->
-                  <!-- <section class="example-section" [formGroup]="toppings">
-                    <h4>You chose:</h4>
-                    {{toppings.value | json}}
-                  </section> -->
+                </div>
             </div>
             <span class="example-spacer"></span>
             <div class="location-station-active">
@@ -78,24 +66,29 @@
                     <h5>Manage</h5>
                 </button>
             </div>
-        <input [placeholder]="myStationData?.stationName" disabled /><br>
-        <div>
-            <label>Station Type</label>
-            <span class="example-spacer"></span>
-        </div>
-        <div class="stationSetting-type">
-            <h5>Public/Private</h5>
-            <span class="example-spacer"></span>
-            <mat-slide-toggle [checked]="myStationData?.stationParkingType === 'Private' ? true : false"></mat-slide-toggle>
-        </div>
+            <input [placeholder]="myStationData?.stationName" disabled /><br>
+            <div>
+                <label>Station Type</label>
+                <span class="example-spacer"></span>
+            </div>
+            <div class="stationSetting-type">
+                <h5>Public/Private</h5>
+                <span class="example-spacer"></span>
+                <mat-slide-toggle
+                    [checked]="myStationData?.stationParkingType === 'Private' ? true : false"></mat-slide-toggle>
+            </div>
         </div>
         <div class="stationSetting-map-photo">
             <div class="stationSetting-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242117.68101876185!2d73.7228790230887!3d18.524890421369644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1679571022103!5m2!1sen!2sin" width="240" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242117.68101876185!2d73.7228790230887!3d18.524890421369644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1679571022103!5m2!1sen!2sin"
+                    width="240" height="320" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <!-- <iframe src="https://www.google.com/maps/embed/v1/place?q={{ myStationData.stationLocation }}" width="240" height="320" style="border:0;" allowfullscreen="" loading="lazy" ></iframe> -->
             </div>
             <div class="stationsetting-photo">
-                <img src="https://c8.alamy.com/comp/MM8XNR/vertical-view-of-an-electric-car-vehicle-charging-at-a-charging-station-ev-charging-point-near-lincolns-inn-in-the-city-of-london-uk-kathy-dewitt-MM8XNR.jpg" alt="Station Photo" style="width: 230px; height: 320px;"/>
+                <img src="https://c8.alamy.com/comp/MM8XNR/vertical-view-of-an-electric-car-vehicle-charging-at-a-charging-station-ev-charging-point-near-lincolns-inn-in-the-city-of-london-uk-kathy-dewitt-MM8XNR.jpg"
+                    alt="Station Photo" style="width: 230px; height: 320px;" />
             </div>
         </div>
     </div>

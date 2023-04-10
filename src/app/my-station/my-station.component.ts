@@ -68,7 +68,7 @@ export class MyStationComponent implements OnInit{
   }
 
   onClickedSetting(stationId: any){                                //redirect to control access page by sending
-    this.route.navigate(['/settings/control-access', stationId]);  //the id of that specific station
+    this.route.navigate(['my-station/station-control-access/', stationId]);  //the id of that specific station
   }
 
   // creating function for directing to charger page

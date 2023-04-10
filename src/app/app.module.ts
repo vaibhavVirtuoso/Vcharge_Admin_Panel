@@ -17,6 +17,7 @@ import { SupportStatusComponent } from './support-status/support-status.componen
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { HeaderComponent } from './header/header.component';
 import {AddStationComponent} from './my-station/add-station/add-station.component';
+import { StationControlAccessComponent } from './my-station/station-control-access/station-control-access.component';
 import {ConnectorsComponent} from './my-station/charging-station/connectors/connectors.component';
 import {ChargerSettingComponent} from './my-station/charging-station/charger-setting/charger-setting.component'
 import {ConnectorSettingComponent} from './my-station/charging-station/connectors/connector-setting/connector-setting.component'
@@ -68,6 +69,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     ChargingStationComponent,
     BankDetailsComponent,
     AddStationComponent,
+    StationControlAccessComponent,
     ConnectorsComponent,
     ChargerSettingComponent,
     ConnectorSettingComponent

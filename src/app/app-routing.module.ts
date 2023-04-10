@@ -16,6 +16,7 @@ import { BankDetailsComponent } from './bank-details/bank-details.component';
 import { ConnectorsComponent } from './my-station/charging-station/connectors/connectors.component';
 import { ChargerSettingComponent } from './my-station/charging-station/charger-setting/charger-setting.component';
 import { ConnectorSettingComponent } from './my-station/charging-station/connectors/connector-setting/connector-setting.component';
+import { StationControlAccessComponent } from './my-station/station-control-access/station-control-access.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path:'my-station',
     component: MyStationComponent,
+  },
+  {
+    path: 'my-station/station-control-access/:id',
+    component: StationControlAccessComponent
   },
   {
     path:'my-station/charging-station/:stationId',
