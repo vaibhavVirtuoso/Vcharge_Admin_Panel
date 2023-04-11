@@ -39,7 +39,7 @@ export class SidenavComponent implements OnInit {
   constructor(private router:Router) {}
 
   ngOnInit():void{
-    this.screenWidth = window.innerWidth;     // to shift the inner body of sidebar 
+    this.screenWidth = window.innerWidth;     // to take size of windows innerwidth
   }
 
   // collapse and expansion of sidenav bar

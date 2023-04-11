@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ConnectorsService } from 'src/app/service/connector/connectors.service';
+import { ConnectorsComponent } from '../connectors.component';
 
 @Component({
   selector: 'app-connector-setting',
@@ -12,6 +13,8 @@ import { ConnectorsService } from 'src/app/service/connector/connectors.service'
 export class ConnectorSettingComponent implements OnInit{
   addConnector:FormGroup;
   connectorId: any;
+  stationId: any;
+  chargerId: any;
   connectorType =[
     "Type A",
     "Type B",
@@ -22,29 +25,20 @@ export class ConnectorSettingComponent implements OnInit{
     "Socket B",
     "Socket C"
   ]
-  modifiedBy=[
-    "Admin",
-    "Vendor"
-  ]
 
   constructor(private activeRoute: ActivatedRoute,private formBuilder: FormBuilder,private dialogRef: MatDialogRef<ConnectorSettingComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private connectors:ConnectorsService) {
     this.addConnector = this.formBuilder.group({
-      connectorId: '',
-      connectorNumber: '',
       connectorType: '',
       connectorSocket: '',
       connectorStatus: '',
       connectorOutputPower: '',
       connectorCharges: '',
-      modifiedDate: '',
-      modifiedBy: '',
-
     })
   }
 
   ngOnInit(): void {
     this.connectorId = this.activeRoute.snapshot.paramMap.get('connectorId');
-    this.addConnector.patchValue(this.data)
+    this.addConnector.patchValue(this.data);
   }
 
   onFormSubmit(){
@@ -54,13 +48,14 @@ export class ConnectorSettingComponent implements OnInit{
       })
 
     }else{
-      console.log(this.addConnector.value);
-      this.connectors.addConnector(this.addConnector.value).subscribe((result:any) =>{
-      console.warn(result);
-      if(result){
-        this.dialogRef.close(true);
-      }
-    })
+      console.log(this.addConnector.value);      
+      
+    //   this.connectors.addConnector(this.addConnector.value,this.stationId,this.chargerId).subscribe((result:any) =>{
+    //   console.warn(result);
+    //   if(result){
+    //     this.dialogRef.close(true);
+    //   }
+    // })
     }
     
   }

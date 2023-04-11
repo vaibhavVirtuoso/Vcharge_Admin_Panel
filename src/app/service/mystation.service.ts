@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MystationService {
-
+  
   constructor(private http:HttpClient) { }
-
+  
   //give complete list of station
   getMyStationList(){
     return this.http.get('http://192.168.0.43:8081/vst1/manageStation/stations');
@@ -26,7 +26,7 @@ export class MystationService {
 
   //for adding the station in staionlist
   addStationToList(data: any): Observable<any>{
-    return this.http.post('http://192.168.0.43:8081/vst1/manageStation/stations',data);   //real station api
+    return this.http.post('http://192.168.0.43:8081/vst1/manageStation/station',data);   //real station api
   }
 
 }

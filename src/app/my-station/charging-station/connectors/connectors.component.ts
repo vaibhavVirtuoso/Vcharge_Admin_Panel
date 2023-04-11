@@ -76,15 +76,18 @@ export class ConnectorsComponent implements OnInit{
 
   onDeleteConnector(){
     console.warn("delete");
-
   }
 
   openDialogBox(){
     const dialogRef =this.dialog.open(ConnectorSettingComponent,{
+      
     })
   }
 
   openConnectorSetting(id: any){
-    this.route.navigate(['connector-setting',id])
+    this.route.navigate([`my-station/charging-station/${this.stationId}/connector/${this.chargerId}/connector-setting`,id])
   }
 }
+
+
+
