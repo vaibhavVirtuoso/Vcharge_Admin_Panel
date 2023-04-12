@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 interface SideNavToggle{
   screenWidth: number;
-  collapsed:boolean;
+  collapsed: boolean;
 }
 
 @Component({
@@ -13,7 +13,7 @@ interface SideNavToggle{
 export class AppComponent {
   title = 'Admindashboard';
 
-  isSideNavCollapsed = false;
+  isSideNavCollapsed = false;    //in starting the sidenav is collapsed
   screenWidth = 0;
 
   onToggleSideNav(data: SideNavToggle){

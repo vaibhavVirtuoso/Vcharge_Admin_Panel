@@ -50,10 +50,6 @@ export const navbarData:INavbarData[] = [                //array to store the li
                 routeLink:'settings/securitySetting',
                 label: 'Security Setting'
             },
-            // {
-            //     routeLink:'settings/control-access',
-            //     label: 'Control Access'
-            // },
             {
                 routeLink:'settings/paymentSetting',
                 label: 'Payment Setting'

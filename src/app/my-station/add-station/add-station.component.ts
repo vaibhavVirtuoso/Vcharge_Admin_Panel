@@ -65,12 +65,9 @@ export class AddStationComponent {
   }
 
   onFormSubmit() {
-      this.myStation.addStationToList(this.addStation.value).subscribe((result:any)=>{
-        if(result){
-        this.openSnackBar("Station added successfully","Done")
-            this.dialogRef.close(true);
-        }
-      })
+      this.myStation.addStationToList(this.addStation.value);
+      this.openSnackBar("Station added successfully","Done")
+      this.dialogRef.close(true);
   }
 
 

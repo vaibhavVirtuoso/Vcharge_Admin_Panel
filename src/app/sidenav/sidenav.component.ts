@@ -14,6 +14,7 @@ interface SideNavToggle{
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css'],
   animations: [
+
     // animation for cross rotation in sidenav bar
     trigger('rotate',[
       transition(':enter',[
@@ -34,12 +35,11 @@ export class SidenavComponent implements OnInit {
   screenWidth = 0;
   navData = navbarData;                 //accessing the data from nav-data.ts file where all the information is stored about the sidenav menu list
   multiple: boolean =false;
-  //@HostListener
 
   constructor(private router:Router) {}
 
   ngOnInit():void{
-    this.screenWidth = window.innerWidth;     // to shift the inner body of sidebar 
+    this.screenWidth = window.innerWidth;     // to take size of windows innerwidth
   }
 
   // collapse and expansion of sidenav bar

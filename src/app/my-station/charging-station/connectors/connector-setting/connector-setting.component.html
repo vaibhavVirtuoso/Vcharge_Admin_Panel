@@ -5,17 +5,6 @@
     <div mat-dialog-content>
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label style="color: black; font-style: normal;">Connector Id</mat-label>
-                <input matInput type="text" placeholder="Ex: Virtuoso charging station" formControlName="connectorId" style="color: black">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Connector Number</mat-label>
-                <input matInput type="text" placeholder="Ex: Pune" formControlName="connectorNumber">
-            </mat-form-field>
-        </div>
-
-        <div class="row">
-            <mat-form-field appearance="outline">
                 <mat-label>Connector Output Power</mat-label>
                 <input matInput type="email" placeholder="Ex: 18.5542818" formControlName="connectorOutputPower">
             </mat-form-field>
@@ -51,28 +40,11 @@
             </mat-form-field>
         </div>
 
-        <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>Modified By</mat-label>
-                <mat-select formControlName="modifiedBy">
-                    <mat-option *ngFor="let val of modifiedBy" [value]="val">{{val}}
-                    </mat-option>
-                  </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Date Of Brith</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="modifiedDate">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-        </div>
-
     </div>
 
     <div mat-dialog-actions class="action">
         <button mat-raised-button class="form-button" type="button" mat-dialog-close="false">Cancel</button>
-        <button mat-raised-button class="form-button" type="submit">{{data ? "Update" : "Add"}}</button>
+        <button mat-raised-button class="form-button" type="submit">{{data.connectorId ? "Update" : "Add"}}</button>
     </div>
 
 </form>

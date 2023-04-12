@@ -13,9 +13,9 @@ export class BodyComponent {
   getBodyClass(): string{
     let styleClass = '';
     if(this.collapsed && this.screenWidth > 768){
-      styleClass = 'body-trimmed';
+      styleClass = 'body-trimmed';                //if sidenav is expanded 
     }else if(this.collapsed && this.screenWidth <= 768 && this.screenWidth > 0){
-      styleClass = 'body-md-screen';
+      styleClass = 'body-md-screen';             //if sidenav is collapsed
     }
     return styleClass;
   }

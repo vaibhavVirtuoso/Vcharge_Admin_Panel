@@ -49,7 +49,7 @@ const routes: Routes = [
     component: ChargingStationComponent,
   },
   {
-    path:'charger-setting/:chargerId',
+    path:'my-station/charging-station/:stationId/charger-setting/:chargerId',
     component: ChargerSettingComponent,
   },
   {
@@ -57,7 +57,7 @@ const routes: Routes = [
     component: ConnectorsComponent,
   },
   {
-    path:'connector-setting/:connectorID',
+    path:'my-station/charging-station/:stationId/connector/:chargerId/connector-setting/:connectorId',
     component: ConnectorSettingComponent,
   },
   {

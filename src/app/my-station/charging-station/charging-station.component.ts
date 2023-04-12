@@ -32,9 +32,8 @@ export class ChargingStationComponent implements OnInit {
     this.activeRoute.params.subscribe(params => {
       this.stationId =params['stationId'];        
       this.getChargerListById(this.stationId);      //to get the charger list of particular station using charger service
-      // this.getStationNamebyId(this.stationId);     //to get station name from station service
+
      })
-    // this.getChargerInfo();
   }
 
   getChargerListById(id: any) {
@@ -65,18 +64,8 @@ export class ChargingStationComponent implements OnInit {
     this.route.navigate([`my-station/charging-station/${this.stationId}/connector`,chargerId]);
   }
 
-  // getStationNamebyId(id: any){
-  //   this.myStation.getStationById(id).subscribe((result)=>{
-  //     if(result){
-  //       console.warn(result);
-        
-  //       // this.stationName = result.stationName.value;
-  //     }
-  //   })
-  // }
-
   // open charger setting page
   openChargerSetting(data: any){
-    this.route.navigate(['charger-setting',data.chargerId]);
+    this.route.navigate([`my-station/charging-station/${this.stationId}/charger-setting/`,data.chargerId]);
   }
 }

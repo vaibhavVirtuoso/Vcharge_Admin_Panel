@@ -17,6 +17,8 @@ import { INavbarData } from './helper';
     class="sublevel-nav"
     >
     <li *ngFor="let item of data.items" class="sublevel-nav-item">
+
+    <!-- sublevel of sublevel -->
     <a class="sublevel-nav-link"
     (click)="handleClick(item)"
      *ngIf="item.items && item.items.length > 0"
@@ -28,13 +30,15 @@ import { INavbarData } from './helper';
         [ngClass]="!item.expanded ? 'fal fa-angle-right': 'fal fa-angle-down'"
         ></i>
     </a>
+
+    <!-- sublevel of sidenav element-->
     <a class="sublevel-nav-link"
       *ngIf="!item.items || (item.items && item.items.length === 0)"
       [routerLink]="[item.routeLink]"
       routerLinkActive="active-sublevel"
       [routerLinkActiveOptions]="{exact:true}"
     >
-    <!--html code for sublevel-menu list label -->
+    <!-- sublevel-menu list -->
     <i class="sublevel-link-icon fa fa-circle"></i>
     <span class="sublevel-link-text" *ngIf="collapsed">{{item.label}}</span>
     </a>
@@ -82,6 +86,7 @@ export class SublevelMenuComponent {
 
   // handing the click for sublevel menu list
   handleClick(item:any):void{
+    // for sublevel of sublevel of menu list
     if(!this.multiple){
       if(this.data.items && this.data.items.length > 0){
         for(let modelItem of this.data.items){
