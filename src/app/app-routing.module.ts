@@ -13,6 +13,10 @@ import { SupportStatusComponent } from './support-status/support-status.componen
 import { EarningsComponent } from './earnings/earnings.component';
 import { ChargingStationComponent } from './my-station/charging-station/charging-station.component';
 import { BankDetailsComponent } from './bank-details/bank-details.component';
+import { ConnectorsComponent } from './my-station/charging-station/connectors/connectors.component';
+import { ChargerSettingComponent } from './my-station/charging-station/charger-setting/charger-setting.component';
+import { ConnectorSettingComponent } from './my-station/charging-station/connectors/connector-setting/connector-setting.component';
+import { StationControlAccessComponent } from './my-station/station-control-access/station-control-access.component';
 
 const routes: Routes = [
   {
@@ -37,8 +41,24 @@ const routes: Routes = [
     component: MyStationComponent,
   },
   {
-    path:'my-station/charging-station',
+    path: 'my-station/station-control-access/:id',
+    component: StationControlAccessComponent
+  },
+  {
+    path:'my-station/charging-station/:stationId',
     component: ChargingStationComponent,
+  },
+  {
+    path:'my-station/charging-station/:stationId/charger-setting/:chargerId',
+    component: ChargerSettingComponent,
+  },
+  {
+    path:'my-station/charging-station/:stationId/connector/:chargerId',
+    component: ConnectorsComponent,
+  },
+  {
+    path:'my-station/charging-station/:stationId/connector/:chargerId/connector-setting/:connectorId',
+    component: ConnectorSettingComponent,
   },
   {
     path:'earnings',

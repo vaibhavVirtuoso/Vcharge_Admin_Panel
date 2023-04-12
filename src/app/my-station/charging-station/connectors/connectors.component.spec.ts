@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ControlAccessComponent } from './control-access.component';
+import { ConnectorsComponent } from './connectors.component';
 
-describe('ControlAccessComponent', () => {
-  let component: ControlAccessComponent;
-  let fixture: ComponentFixture<ControlAccessComponent>;
+describe('ConnectorsComponent', () => {
+  let component: ConnectorsComponent;
+  let fixture: ComponentFixture<ConnectorsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ControlAccessComponent ]
+      declarations: [ ConnectorsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ControlAccessComponent);
+    fixture = TestBed.createComponent(ConnectorsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

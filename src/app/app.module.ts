@@ -16,6 +16,12 @@ import { DownloadsComponent } from './downloads/downloads.component';
 import { SupportStatusComponent } from './support-status/support-status.component';
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { HeaderComponent } from './header/header.component';
+import {AddStationComponent} from './my-station/add-station/add-station.component';
+import { StationControlAccessComponent } from './my-station/station-control-access/station-control-access.component';
+import {ConnectorsComponent} from './my-station/charging-station/connectors/connectors.component';
+import {ChargerSettingComponent} from './my-station/charging-station/charger-setting/charger-setting.component'
+import {ConnectorSettingComponent} from './my-station/charging-station/connectors/connector-setting/connector-setting.component'
+
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
@@ -36,6 +42,13 @@ import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +67,12 @@ import { MatTableModule } from '@angular/material/table';
     HeaderComponent,
     ProfileComponent,
     ChargingStationComponent,
-    BankDetailsComponent
+    BankDetailsComponent,
+    AddStationComponent,
+    StationControlAccessComponent,
+    ConnectorsComponent,
+    ChargerSettingComponent,
+    ConnectorSettingComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +93,13 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     MatPaginatorModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,12 +8,15 @@
     height: 100vh;
     box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
 }
-.logo-container{
+
+/* sidenav header which container A and Admin text  */
+.sidenav-header-container{
     display: flex;
     align-items: center;
     padding: 0.938rem 0.938rem 0 0.938rem;
     width: 100%;
 }
+/* sidenav A button */
 .logo{
     background-color: #fff;
     text-align: center;
@@ -26,13 +29,14 @@
     cursor: pointer;
     border:none;
 }
-.logo-text{
+/* sidenav bar admin text  */
+.admin-text{
     margin-left:1.5rem;
     font-size: 24px;
     font-weight: 700;
     color:#fff;
 }
-.btn-close{
+.sidenav-btn-close{
     margin-left: auto;
     cursor: pointer;
     width: 2rem;
@@ -41,7 +45,7 @@
     background-color: transparent;
     border: none;
 }
-.btn-close i:hover{
+.sidenav-btn-close i:hover{
    color: rgb(207, 48, 48);
 }
 .fa-times{
@@ -51,6 +55,9 @@
 .sidenav-collapsed{
     width: 16.5625rem;
 }
+
+/* sidenav menu list CSS started */
+
 .sidenav-nav{
     list-style: none;
     padding:0.938rem;
@@ -89,9 +96,12 @@
     background-color: #f3f3f3;
     color: #000;
 }
+
+/* to show which component is active from the all menu */
 .active{
     background-color: #fff;
 }
+/* to show which sublevel menu is active */
 .active-sublevel{
     font-weight: bold;
 }
@@ -107,7 +117,6 @@
 .sublevel-nav{
     list-style: none;
     margin-left: 10px;
-
 }
 .sublevel-nav .sublevel-nav-item .sublevel-nav-link{
     display: flex;
@@ -133,7 +142,7 @@
     color: white;
 } 
 
-/* scroll effect for sidebar */
+/* scroll effect for sidebar menu list */
 
 .scrollwrap{
     overflow-y: auto;
