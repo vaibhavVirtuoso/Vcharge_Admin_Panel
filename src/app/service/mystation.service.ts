@@ -25,8 +25,15 @@ export class MystationService {
   }
 
   //for adding the station in staionlist
-  addStationToList(data: any): Observable<any>{
-    return this.http.post('http://192.168.0.43:8081/vst1/manageStation/station',data);   //real station api
+  addStationToList(data: any){
+    return this.http.post('http://192.168.0.43:8081/vst1/manageStation/station',data).subscribe(
+      (response)=>{
+        console.log('Response',response);
+      },
+      (error) => {
+        console.log('Error',error.status);
+      }
+    )  //real station api
   }
 
 }

@@ -15,6 +15,7 @@ export class ConnectorSettingComponent implements OnInit{
   connectorId: any;
   stationId: any;
   chargerId: any;
+
   connectorType =[
     "Type A",
     "Type B",
@@ -38,24 +39,28 @@ export class ConnectorSettingComponent implements OnInit{
 
   ngOnInit(): void {
     this.connectorId = this.activeRoute.snapshot.paramMap.get('connectorId');
-    this.addConnector.patchValue(this.data);
+    this.addConnector.patchValue(this.data);      
+    this.stationId = this.data.stationId;
+    this.chargerId = this.data.chargerId;
+    console.log(this.stationId);
+    console.log(this.chargerId);
+    console.log(this.data);
+    
   }
 
+  // getConnectorDetails(sId:any,cId:any){
+  //   this.connectors.getConnector(sId,cId);
+  // }
+
   onFormSubmit(){
-    if(this.data){
+    if(this.data.connectorId){
       this.connectors.updatingConnector(this.data.connectorId,this.addConnector.value).subscribe((result) =>{
         console.warn(result);
       })
-
-    }else{
-      console.log(this.addConnector.value);      
-      
-    //   this.connectors.addConnector(this.addConnector.value,this.stationId,this.chargerId).subscribe((result:any) =>{
-    //   console.warn(result);
-    //   if(result){
-    //     this.dialogRef.close(true);
-    //   }
-    // })
+    }else{         
+      this.connectors.addConnector(this.addConnector.value,this.stationId,this.chargerId);
+      this.dialogRef.close(true);
+      // this.getConnectorDetails(this.stationId,this.chargerId);
     }
     
   }

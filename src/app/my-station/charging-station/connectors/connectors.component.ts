@@ -4,8 +4,10 @@ import { ConnectorsService } from 'src/app/service/connector/connectors.service'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConnectorSettingComponent } from './connector-setting/connector-setting.component';
+import { DialogConfig } from '@angular/cdk/dialog';
+import { ChargerSettingComponent } from '../charger-setting/charger-setting.component';
 
 @Component({
   selector: 'app-connectors',
@@ -70,7 +72,7 @@ export class ConnectorsComponent implements OnInit{
           this.getConnectorUsingIds(this.stationId,this.chargerId);
         }
       }
-    })
+    })                     
     
   }
 
@@ -79,9 +81,14 @@ export class ConnectorsComponent implements OnInit{
   }
 
   openDialogBox(){
-    const dialogRef =this.dialog.open(ConnectorSettingComponent,{
-      
-    })
+    const dialogRef = new MatDialogConfig();
+    dialogRef.data = {
+      stationId: this.stationId,
+      chargerId: this.chargerId
+    };
+
+    this.dialog.open(ConnectorSettingComponent,dialogRef)
+    this.getConnectorUsingIds(this.stationId,this.chargerId);
   }
 
   openConnectorSetting(id: any){

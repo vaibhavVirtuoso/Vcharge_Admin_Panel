@@ -20,7 +20,14 @@ export class ConnectorsService {
 
   // adding connectors data
   addConnector(data: any,stationId: any,chargerId: any){
-    return  this.http.post(`http://192.168.0.43:8081/vst1/manageStation/stationConnector?stationId=${stationId}&chargerId=${chargerId}`,data);
+    return  this.http.post(`http://192.168.0.43:8081/vst1/manageStation/stationConnector?stationId=${stationId}&chargerId=${chargerId}`,data).subscribe(
+      (response)=>{
+        console.log('Response',response);
+      },
+      (error) => {
+        console.log('Error',error.status);
+      }
+    )
   }
 
   // updating connnector data
