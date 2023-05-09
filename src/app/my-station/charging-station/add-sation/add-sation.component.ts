@@ -1,16 +1,17 @@
-import { DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MystationService } from 'src/app/service/station/mystation.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddStationComponent } from '../../add-station/add-station.component';
+import { ChargersService } from 'src/app/service/charger/chargers.service';
 @Component({
-  selector: 'app-add-station',
-  templateUrl: './add-station.component.html',
-  styleUrls: ['./add-station.component.css']
+  selector: 'app-add-sation',
+  templateUrl: './add-sation.component.html',
+  styleUrls: ['./add-sation.component.css']
 })
-export class AddStationComponent {
-  addStation:FormGroup;
+export class AddSationComponent {
+  addSation:FormGroup ;
   amenities: Array<any> = [
     {name:'WiFi',value: 'WiFi' },
     {name:'Restaurants',value: 'Restaurants' },
@@ -31,10 +32,10 @@ export class AddStationComponent {
     "Private",
     "Public"
   ]
-  constructor(private formBuilder: FormBuilder,private myStation:MystationService,private dialogRef: MatDialogRef<AddStationComponent>, @Inject(MAT_DIALOG_DATA) public data: any,private snackBar:MatSnackBar) {
-    this.addStation = this.formBuilder.group({
-      stationName: '',
-      stationLocation: '',
+  constructor(private formBuilder: FormBuilder,private chargerService:ChargersService,private dialogRef: MatDialogRef<AddSationComponent>, @Inject(MAT_DIALOG_DATA) public data: any,private snackBar:MatSnackBar) {
+    this.addSation = this.formBuilder.group({
+      chargerName: '',
+      chargerInputVoltage: '',
       stationLatitude: '',
       stationLongitude: '',
       stationLocationURL: '',
@@ -49,7 +50,7 @@ export class AddStationComponent {
   }
 
   onCheckboxChange(event:any){
-    const stationAmenity: FormArray = this.addStation.get('stationAmenity') as FormArray;
+    const stationAmenity: FormArray = this.addSation.get('stationAmenity') as FormArray;
     if(event.target.checked){
       stationAmenity.push(new FormControl(event.target.value));
     }
@@ -64,10 +65,12 @@ export class AddStationComponent {
   }
 
   onFormSubmit() {
-      this.myStation.addStationToList(this.addStation.value);
+      this.chargerService.addChargerToList(this.addSation.value);
       this.openSnackBar("Station added successfully","Done")
       this.dialogRef.close(true);
   }
 
 
 }
+
+

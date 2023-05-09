@@ -1,4 +1,5 @@
 <h1>My Station</h1>
+<!-- Add Button in M-Station -->
 <!-- table header section for button and filters -->
 <div class="table-header-card tab-content">
     <mat-card>
@@ -86,10 +87,17 @@
           <mat-icon class="vertical-menu-icon" [matMenuTriggerFor]="dotmenu">more_vert</mat-icon>
           <mat-menu #dotmenu="matMenu" class="chargingStation-threeDot-Menu">
               &nbsp;&nbsp;<mat-slide-toggle>Stop-Start</mat-slide-toggle>&nbsp;<br>
-              &nbsp;&nbsp;<mat-slide-toggle [checked]="row.stationStatus === 'Available' ? true : false" #toggleVal (change)="onToggleChange(row.stationStatus,row.stationId)">Inactive-Active</mat-slide-toggle>&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;<mat-slide-toggle [checked]="row.stationStatus === 'Available' ? true : false" #toggleVal (change)="onToggleChange(row.stationStatus,row.stationId)">Inactive-Active</mat-slide-toggle>&nbsp;&nbsp;&nbsp;<br>
+                <!-- <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                  &nbsp;&nbsp; <mat-icon>delete</mat-icon>&nbsp;
+                </button> -->
+                <div class="delete-station" (click)="onDelete(row.stationId)">
+                <mat-icon aria-hidden="false"  fontIcon="delete"></mat-icon>
+                 <h4>Delete Station</h4>
+                 </div>
               <div class="myStation-menu-setting" (click)="onClickedSetting(row.stationId)">
                   <mat-icon>settings</mat-icon>
-                  <h4>Setting</h4>
+                  <h4>Contol Access</h4>
               </div>
           </mat-menu> 
       </td>

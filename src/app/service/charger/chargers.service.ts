@@ -10,16 +10,32 @@ export class ChargersService {
 
   //get the complete list of charger bu passing the stationId
   getChargerAllList(stationId: any){    
-    return this.http.get(`http://192.168.0.43:8081/vst1/manageStation/getStationChargers?stationId=${stationId}`);
+    return this.http.get(`http://192.168.0.43:8080/manageCharger/getChargers?stationId=${stationId}`);
   }
 
   // get the information of charger using chargerId
   getChargerById(chargerId: any){
-    return this.http.get(`http://192.168.0.43:8081/vst1/manageStation/getChargerById?chargerId=${chargerId}`);
+    return this.http.get(`http://192.168.0.43:8080/manageCharger/getCharger?chargerId=${chargerId}`);
   }
 
   // update the charger details using the chargerId 
   updateCharger(chargerId: any,data: any){
     return this.http.put('',data);
+  }
+  //Delete the charger by using the chargerId
+  deleteChargerById(id: any) {
+    return this.http.delete(`http://192.168.0.43:8080/manageCharger/deleteCharger?chargerId=${id}`);
+  }
+  // Add Charger in the charger list
+  addChargerToList(data: any) {
+    console.log(data);
+    return this.http.post('http://192.168.0.43:8080/manageCharger/addCharger', data).subscribe(
+      (response) => {
+        console.log('Response', response);
+      },
+      (error) => {
+        console.log('Error', error.status);
+      }
+    )  //real station api
   }
 }

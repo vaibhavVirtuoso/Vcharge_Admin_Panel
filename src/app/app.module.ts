@@ -23,7 +23,6 @@ import {ChargerSettingComponent} from './my-station/charging-station/charger-set
 import {ConnectorSettingComponent} from './my-station/charging-station/connectors/connector-setting/connector-setting.component'
 
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
@@ -48,7 +47,11 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-
+import { MatConfirmDialogComponent } from './my-station/mat-confirm-dialog/mat-confirm-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { AddSationComponent } from './my-station/charging-station/add-sation/add-sation.component';
+import { MatMessageDialogComponent } from './my-station/charging-station/mat-message-dialog/mat-message-dialog.component';
+import { MystationService } from './service/station/mystation.service';
 
 @NgModule({
   declarations: [
@@ -72,14 +75,15 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     StationControlAccessComponent,
     ConnectorsComponent,
     ChargerSettingComponent,
-    ConnectorSettingComponent
+    ConnectorSettingComponent,
+    AddSationComponent,
+    MyStationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule,
     MatSelectModule,
     MatMenuModule,
     MatCardModule,
@@ -99,9 +103,12 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     MatInputModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    MatIconModule,
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[MatConfirmDialogComponent, MatMessageDialogComponent]
 })
 export class AppModule { }

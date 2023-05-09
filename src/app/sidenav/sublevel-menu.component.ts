@@ -98,7 +98,7 @@ export class SublevelMenuComponent {
     }
     item.expanded = !item.expanded;            // for making sidenav menu true and false
   }
-
+  
   // adding class="active-sublevel" CSS to sub-component which is active 
   getActiveClass(item:INavbarData):string{
     return item.expanded && this.router.url.includes(item.routeLink)? 'active-sublevel' : '';

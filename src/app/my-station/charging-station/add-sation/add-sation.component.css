@@ -1,26 +1,27 @@
-.edit-option{
-    display: flex;
+.mdc-dialog__title{
+    padding: 0px 24px 0px 24px;
 }
-.edit-option h4{
-    margin-right: 20px;
+.content{
+    padding-top:10px;
 }
-
-.charger-setting-page{
-    display: flex;
-    background-color: rgb(232, 228, 228);
-    padding: 40px 70px;
-    justify-content: center;
-}
-
 .row{
     display: flex;
-    gap:20px;
+    gap:10px;
+}
+mat-form-field{
+    width:100%;
+}
+mat-form-field input::placeholder{
+    color: black;
 }
 .action{
     margin-bottom: 5px;
     justify-content: center;
-    display: flex;
 }
+#button{
+    flex:1;
+}
+
 .form-button{
     display: flex;
     margin-right: 10px;
@@ -37,4 +38,10 @@
 .form-button:hover{
     color: rgb(26, 131, 167);
     background-color: black;
+}
+
+/* snackbar CSS */
+.snack-bar{
+    background: antiquewhite;
+    color: black;
 }

@@ -65,7 +65,7 @@ export class SidenavComponent implements OnInit {
     }
     item.expanded = !item.expanded    // for making sidenav menu true and false
   }
-
+  
   // adding class="active" CSS to component which is active 
   getActiveClass(data: INavbarData):string{
     return this.router.url.includes(data.routeLink)? 'active' : '';

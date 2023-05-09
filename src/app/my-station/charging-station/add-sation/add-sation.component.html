@@ -1,50 +1,58 @@
 <div mat-dialog-title>
-    <h2>Add Station</h2>
+    <h2>Add Charger</h2>
 </div>
 
-<form [formGroup]="addStation" (ngSubmit)="onFormSubmit()"> <!--[formGroup]="empForm" (ngSubmit)="onFormSubmit()"-->
+<form [formGroup]="addSation" (ngSubmit)="onFormSubmit()"> <!--[formGroup]="empForm" (ngSubmit)="onFormSubmit()"-->
     <div mat-dialog-content>
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Station Name</mat-label>
-                <input matInput type="text" placeholder="Ex: Virtuoso charging station" formControlName="stationName">
+                <mat-label>Chager Name</mat-label>
+                <input matInput type="text" placeholder="" formControlName="chargerName">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Charger Input Voltage</mat-label>
+                <input matInput type="text" placeholder="Ex: Virtuoso charging station" formControlName="chargerInputVoltage">
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Station Location</mat-label>
-                <input matInput type="text" placeholder="Ex: Pune" formControlName="stationLocation">
+                <mat-label>Charger Output Voltage</mat-label>
+                <input matInput type="text" placeholder="Ex: Pune" formControlName="chargerOutputVoltage">
             </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>ChargerMinInputAmpere</mat-label>
+                <input matInput type="email" placeholder="Ex: 18.5542818" formControlName="chargerMinInputAmpere">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>ChargerMaxInputAmpere</mat-label>
+                <input matInput type="text" placeholder="Ex: 73.923676" formControlName="chargerMaxInputAmpere">
+            </mat-form-field>
+
         </div>
 
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Station Latitude</mat-label>
-                <input matInput type="email" placeholder="Ex: 18.5542818" formControlName="stationLatitude">
+                <mat-label>Charger Input Frequency</mat-label>
+                <input matInput type="text" placeholder="Ex: 150sqft" formControlName="chargerInputFrequency">
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Station Longitude</mat-label>
-                <input matInput type="text" placeholder="Ex: 73.923676" formControlName="stationLongitude">
+                <mat-label>Charger Output Frequency</mat-label>
+                <input matInput type="text" placeholder="Ex: +919876543210" formControlName="chargerOutputFrequency">
             </mat-form-field>
-
         </div>
         
         <div class="row">
             <mat-form-field appearance="outline">
-                <mat-label>Station Location URL</mat-label>
-                <input matInput type="text" placeholder="URL" formControlName="stationLocationURL">
-            </mat-form-field>
-        </div>
-
-        <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>Station Parking Area</mat-label>
-                <input matInput type="text" placeholder="Ex: 150sqft" formControlName="stationParkingArea">
+                <mat-label>Charger IP Rating</mat-label>
+                <input matInput type="text" placeholder="Ex: 150sqft" formControlName="chargerIpRating">
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>Station Contact Number</mat-label>
-                <input matInput type="text" placeholder="Ex: +919876543210" formControlName="stationContactNumber">
+                <mat-label>Charger Mount Type</mat-label>
+                <input matInput type="text" placeholder="Ex: +919876543210" formControlName="chargerMountType">
             </mat-form-field>
         </div>
-
         <div class="row">
             <mat-radio-group aria-label="Select an option" formControlName="stationStatus">
                 <mat-label><b>Station Status</b></mat-label>

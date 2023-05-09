@@ -12,10 +12,10 @@ interface SideNavToggle{
 })
 export class AppComponent {
   title = 'Admindashboard';
-
+  
   isSideNavCollapsed = false;    //in starting the sidenav is collapsed
   screenWidth = 0;
-
+  
   onToggleSideNav(data: SideNavToggle){
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;

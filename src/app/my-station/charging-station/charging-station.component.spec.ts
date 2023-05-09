@@ -11,7 +11,7 @@ describe('ChargingStationComponent', () => {
       declarations: [ ChargingStationComponent ]
     })
     .compileComponents();
-
+ 
     fixture = TestBed.createComponent(ChargingStationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

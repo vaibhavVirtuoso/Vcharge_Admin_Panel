@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MystationService } from '../service/mystation.service';
+import { MystationService } from '../service/station/mystation.service';
 
 @Component({
   selector: 'earnings-control',

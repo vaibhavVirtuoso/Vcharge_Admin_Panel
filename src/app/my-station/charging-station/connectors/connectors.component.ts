@@ -8,6 +8,9 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConnectorSettingComponent } from './connector-setting/connector-setting.component';
 import { DialogConfig } from '@angular/cdk/dialog';
 import { ChargerSettingComponent } from '../charger-setting/charger-setting.component';
+import { DeleteConnectorsService } from 'src/app/service/connector/delete-connectors.service';
+import { MatConnectorsDialogComponent } from './mat-connectors-dialog/mat-connectors-dialog.component';
+import { DialogService } from 'src/app/service/station/dialog.service';
 
 @Component({
   selector: 'app-connectors',
@@ -22,7 +25,7 @@ export class ConnectorsComponent implements OnInit{
   displayedColumns: string[] = [ 'connectorNumber', 'connectorType','connectorSocket','connectorStatus','connectorOutputPower', 'menu'];
   dataSource!: MatTableDataSource<any>;
 
-  constructor(private activeRoute: ActivatedRoute,private connector:ConnectorsService,private route:Router,private dialog:MatDialog){}
+  constructor(private activeRoute: ActivatedRoute,private connector:ConnectorsService, private myConnector:ConnectorsService, private route:Router,private dialog:MatDialog, private deleteService:DeleteConnectorsService, private dialogService:DialogService){}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -76,8 +79,48 @@ export class ConnectorsComponent implements OnInit{
     
   }
 
-  onDeleteConnector(){
-    console.warn("delete");
+  onDeleteConnector(connectorId:any){
+    //console.warn("delete");
+    //this.deleteService.openConfirmDialog()
+  
+    const dialogRef = this.dialog.open(MatConnectorsDialogComponent, {
+
+      maxWidth: "400px",
+
+      data: {
+
+        title: "Are you sure?",
+
+        message: "Are you sure you want to delete user "
+
+      }
+
+    });
+
+
+
+
+    // listen to response
+
+    dialogRef.afterClosed().subscribe((dialogResult: any) => {
+      if (dialogResult) {
+
+        this.myConnector.deleteConnectorById(connectorId).subscribe((result: any) => {
+          console.log(result)
+         
+
+        })
+
+      }
+      // if user pressed yes dialogResult will be true,
+
+      // if he pressed no - it will be false
+
+      console.log(dialogResult);
+      window.location.reload();
+
+
+    });
   }
 
   openDialogBox(){
@@ -86,7 +129,7 @@ export class ConnectorsComponent implements OnInit{
       stationId: this.stationId,
       chargerId: this.chargerId
     };
-
+  
     this.dialog.open(ConnectorSettingComponent,dialogRef)
     this.getConnectorUsingIds(this.stationId,this.chargerId);
   }

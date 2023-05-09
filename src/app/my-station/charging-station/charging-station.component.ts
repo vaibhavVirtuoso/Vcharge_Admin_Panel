@@ -4,7 +4,13 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChargersService } from 'src/app/service/charger/chargers.service';
-import { MystationService } from 'src/app/service/mystation.service';
+import { MystationService } from 'src/app/service/station/mystation.service';
+import { AddStationComponent } from '../add-station/add-station.component';
+import { MatConfirmDialogComponent } from '../mat-confirm-dialog/mat-confirm-dialog.component';
+import { BoxService } from 'src/app/service/charger/box.service';
+import { MatMessageDialogComponent } from './mat-message-dialog/mat-message-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AddSationComponent } from './add-sation/add-sation.component';
 
 @Component({
   selector: 'app-charging-station',
@@ -16,8 +22,9 @@ export class ChargingStationComponent implements OnInit {
   stationName: any;
   chargerListData: any;
   selectedItem: any;
+  
 
-  constructor(private activeRoute:ActivatedRoute,private charger:ChargersService, private myStation:MystationService,private route:Router ) {}
+  constructor(private activeRoute:ActivatedRoute,private charger:ChargersService, private myStation:ChargersService,private route:Router, private dialog:MatDialog, private boxService:BoxService ) {}
 
   displayedColumns: string[] = ['id', 'chargerName', 'chargerserialNumber','connectorStatus','total','activeConnector','inactiveconnector','chargerStatus', 'menu'];
   dataSource!: MatTableDataSource<any>;
@@ -68,4 +75,55 @@ export class ChargingStationComponent implements OnInit {
   openChargerSetting(data: any){
     this.route.navigate([`my-station/charging-station/${this.stationId}/charger-setting/`,data.chargerId]);
   }
+  addStationDialog(){
+    const dialogRef = this.dialog.open(AddSationComponent)
+  }
+  onRemove(chargerId:any){
+   // this.boxService.openConfirmDialog()
+   
+
+    const dialogRef = this.dialog.open(MatMessageDialogComponent, {
+
+      maxWidth: "400px",
+
+      data: {
+
+        title: "Are you sure?",
+
+        message: "Are you sure you want to delete user "
+
+      }
+
+    });
+
+
+
+
+    // listen to response
+
+    dialogRef.afterClosed().subscribe((dialogResult: any) => {
+      if (dialogResult) {
+
+        this.myStation.deleteChargerById(chargerId).subscribe((result: any) => {
+          console.log(result)
+          this.getStationInfo();
+
+        })
+
+      }
+      // if user pressed yes dialogResult will be true,
+
+      // if he pressed no - it will be false
+
+      console.log(dialogResult);
+      window.location.reload();
+
+
+    });
+  }
+  getStationInfo() {
+    throw new Error('Method not implemented.');
+  }
+  
+  
 }

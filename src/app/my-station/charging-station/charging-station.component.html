@@ -40,7 +40,19 @@
         </mat-card-content>
     </mat-card> 
 </div>
+
 <h4 class="charging-station-heading" >Charging Station: </h4>
+<div class="table-header-card tab-content">
+  <mat-card>
+      <mat-card-content>
+          <span class="example-spacer"></span>
+          <button mat-raised-button (click)="addStationDialog()">
+              <mat-icon aria-hidden="false" aria-label="Example download icon" fontIcon="add"></mat-icon>
+              <h5>Add Charger</h5>
+          </button>
+      </mat-card-content>
+    </mat-card> 
+</div>
 <div class="table-content-card">
     <mat-card>
     <mat-card-content>
@@ -99,6 +111,10 @@
             <mat-menu #dotmenu="matMenu" class="chargingStation-threeDot-Menu">
                 &nbsp;&nbsp;<mat-slide-toggle>Stop-Start</mat-slide-toggle>&nbsp;<br>
                 &nbsp;&nbsp;<mat-slide-toggle >Inactive-Active</mat-slide-toggle>&nbsp;&nbsp;&nbsp;
+                <div class="delete-station" (click)="onRemove(row.chargerId)">
+                  <mat-icon aria-hidden="false"  fontIcon="delete"></mat-icon>
+                   <h4>Delete Charger</h4>
+                   </div>
                 <div class="myStation-menu-setting" (click)="openChargerSetting(row)">
                   <mat-icon>settings</mat-icon>
                   <h4>Setting</h4>
@@ -117,10 +133,10 @@
 
         </mat-card-content>
     </mat-card>
-
+    
     <div class="myStation-back-button">
       <h4 routerLink="/my-station">Back To My Station</h4>
-  </div>
+    </div>
     
     <div class="back-button">
         <button routerLink="/dashboard">Back</button>
