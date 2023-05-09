@@ -7,9 +7,9 @@ export const navbarData:INavbarData[] = [                //array to store the li
         label: 'Dashboard'                              //label
     },
     {
-        routeLink: 'my-station',
+        routeLink: 'manageStation',
         icon: 'fas fa-charging-station',
-        label: 'My Station',
+        label: 'Manage Station',
     },
     {
         routeLink: 'earnings',

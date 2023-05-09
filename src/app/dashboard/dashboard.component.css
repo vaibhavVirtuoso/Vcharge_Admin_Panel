@@ -127,6 +127,7 @@ mat-card-title{
     text-align: left;
     margin-left: 23px;
     padding: 5px 10px;
+ 
 }
 /* ---------------------------------------------- */
 
@@ -134,7 +135,9 @@ mat-card-title{
 .booking-card-calender{
     width: 20rem;
     padding: 10px 20px;
+    
 }
+
 /* dasboard booking calender CSS */
 .booking-calendar{
     width: 210px;

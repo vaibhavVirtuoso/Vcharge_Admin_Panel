@@ -7,23 +7,16 @@ import { AppComponent } from './app.component';
 import { BodyComponent } from './body/body.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MyStationComponent } from './my-station/my-station.component';
 import { EarningsComponent } from './earnings/earnings.component';
 import {BookingComponent} from "./booking/booking.component"
 import { PaymentsComponent } from './payments/payments.component';
 import { SettlementsComponent } from './settlements/settlements.component';
 import { DownloadsComponent } from './downloads/downloads.component';
-import { SupportStatusComponent } from './support-status/support-status.component';
+import { SupportStatusComponent } from './supportStatus/supportStatus.component';
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { HeaderComponent } from './header/header.component';
-import {AddStationComponent} from './my-station/add-station/add-station.component';
-import { StationControlAccessComponent } from './my-station/station-control-access/station-control-access.component';
-import {ConnectorsComponent} from './my-station/charging-station/connectors/connectors.component';
-import {ChargerSettingComponent} from './my-station/charging-station/charger-setting/charger-setting.component'
-import {ConnectorSettingComponent} from './my-station/charging-station/connectors/connector-setting/connector-setting.component'
 
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
@@ -34,8 +27,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {NgModel,NgForm} from '@angular/forms';
-import { ChargingStationComponent } from './my-station/charging-station/charging-station.component';
-import { BankDetailsComponent } from './bank-details/bank-details.component';
+import { BankDetailsComponent } from './bankDetails/bankDetails.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -48,7 +40,18 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-
+import { ManageStationComponent } from './manageStation/manageStation.component';
+import { AddStationComponent } from './manageStation/addStation/addStation.component';
+import { OpenDialogComponent } from './manageStation/openDialog/openDialog.component';
+import { ChargersComponent } from './chargers/chargers.component';
+import { AddChargerComponent } from './chargers/addCharger/addCharger.component';
+import { ChargerSettingComponent } from './chargers/chargerSetting/charger-setting.component';
+import { DeleteDialogComponent } from './chargers/deleteDialog/delete-dialog.component';
+import { ConnectorsComponent } from './connectors/connectors.component';
+import { DeleteConnectorComponent } from './connectors/delete-connector/delete-connector.component';
+import { AddConnectorComponent } from './connectors/add-connector/add-connector.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ControlAccessComponent } from './manageStation/controlAccess/control-access.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,6 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     BodyComponent,
     SidenavComponent,
     DashboardComponent,
-    MyStationComponent,
     EarningsComponent,
     BookingComponent,
     PaymentsComponent,
@@ -66,20 +68,24 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     SublevelMenuComponent,
     HeaderComponent,
     ProfileComponent,
-    ChargingStationComponent,
     BankDetailsComponent,
+    ManageStationComponent,
     AddStationComponent,
-    StationControlAccessComponent,
-    ConnectorsComponent,
+    OpenDialogComponent,
+    ChargersComponent,
+    AddChargerComponent,
     ChargerSettingComponent,
-    ConnectorSettingComponent
+    DeleteDialogComponent,
+    ConnectorsComponent,
+    DeleteConnectorComponent,
+    ControlAccessComponent,
+    AddConnectorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule,
     MatSelectModule,
     MatMenuModule,
     MatCardModule,
@@ -99,9 +105,13 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     MatInputModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    MatIconModule,
+    
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
     @Input() collapsed = false;
     @Input() screenWidth = 0;
-
+       
     getHeadClass():string {
       let styleClass = '';
       if(this.collapsed && this.screenWidth > 768){

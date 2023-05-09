@@ -4,13 +4,15 @@
         <!-- commenting for git practice  -->
         <!-- grouping all tabs which are created -->
         <mat-tab-group animationDuration="1000ms">
-
+            
             <!--1st tab:- Overview tabs -->
             <mat-tab label="Overview">
                 <div class="tab-content">
+<button class="danger" (click)="displayCard=false">Hide button</button>
+<button (click)="displayCard=true">Show button</button>
 
                     <!-- 1st section for 5 mat-cards (including chart card) -->
-                    <div class="grid-container cards-collection-container">
+                    <div *ngIf="displayCard" class="grid-container cards-collection-container">
 
                         <!-- charging session (1st row 1st column) -->
                         <mat-card class="dashboard-overview-card">
@@ -21,7 +23,7 @@
                             <mat-card-actions align="end">
                             </mat-card-actions>
                         </mat-card>
-
+                          
                         <!-- total devices (1st row  2nd column) -->
                         <mat-card class="dashboard-overview-card">
                             <mat-card-header>
@@ -31,14 +33,14 @@
                             <mat-card-actions align="end">
                             </mat-card-actions>
                         </mat-card>
-
+                              
                         <!-- chart container card -->
                         <div class="chart-container ">
                             <h2>Charts</h2>
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/India_religion_pie_graph.svg/1200px-India_religion_pie_graph.svg.png"
                                 alt="chart image" class="piechart-image" />
                         </div>
-
+                         
                         <!-- Total revenue card (2nd row 1st column) -->
                         <mat-card class="dashboard-overview-card">
                             <mat-card-header>
@@ -48,7 +50,7 @@
                             <mat-card-actions align="end">
                             </mat-card-actions>
                         </mat-card>
-
+              
                         <!-- Total Energy card (2nd row 2nd column) -->
                         <mat-card class="dashboard-overview-card">
                             <mat-card-header>
@@ -59,7 +61,7 @@
                             </mat-card-actions>
                         </mat-card>
                     </div>
-
+                    
                     <!--2nd section Map and graph section  -->
                     <div class="graph-container">
                         <mat-card class="dashboard-overview-card">

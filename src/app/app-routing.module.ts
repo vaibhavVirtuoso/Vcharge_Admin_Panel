@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MyStationComponent } from './my-station/my-station.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -9,14 +8,14 @@ import { BookingComponent, } from './booking/booking.component';
 import { SettingModule } from './settings/setting.module';
 import { SettingsComponent } from './settings/settings.component';
 import { SettlementsComponent } from './settlements/settlements.component';
-import { SupportStatusComponent } from './support-status/support-status.component';
+import { SupportStatusComponent } from './supportStatus/supportStatus.component';
 import { EarningsComponent } from './earnings/earnings.component';
-import { ChargingStationComponent } from './my-station/charging-station/charging-station.component';
-import { BankDetailsComponent } from './bank-details/bank-details.component';
-import { ConnectorsComponent } from './my-station/charging-station/connectors/connectors.component';
-import { ChargerSettingComponent } from './my-station/charging-station/charger-setting/charger-setting.component';
-import { ConnectorSettingComponent } from './my-station/charging-station/connectors/connector-setting/connector-setting.component';
-import { StationControlAccessComponent } from './my-station/station-control-access/station-control-access.component';
+import { BankDetailsComponent } from './bankDetails/bankDetails.component';
+import { ManageStationComponent } from './manageStation/manageStation.component';
+import { ChargersComponent } from './chargers/chargers.component';
+import { ChargerSettingComponent } from './chargers/chargerSetting/charger-setting.component';
+import { ConnectorsComponent } from './connectors/connectors.component';
+import { ControlAccessComponent } from './manageStation/controlAccess/control-access.component';
 
 const routes: Routes = [
   {
@@ -33,32 +32,28 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path:'bank-details',
+    path:'bankDetails',
     component: BankDetailsComponent
   },
   {
-    path:'my-station',
-    component: MyStationComponent,
+    path:'manageStation',
+    component: ManageStationComponent
   },
   {
-    path: 'my-station/station-control-access/:id',
-    component: StationControlAccessComponent
+    path:'manageStation/chargers/:stationId',
+    component: ChargersComponent
   },
   {
-    path:'my-station/charging-station/:stationId',
-    component: ChargingStationComponent,
-  },
-  {
-    path:'my-station/charging-station/:stationId/charger-setting/:chargerId',
+    path:'manageStation/chargers/:stationId/chargerSetting/:chargerId',
     component: ChargerSettingComponent,
   },
   {
-    path:'my-station/charging-station/:stationId/connector/:chargerId',
+    path:'manageStation/chargers/:stationId/connector/:chargerId',
     component: ConnectorsComponent,
   },
   {
-    path:'my-station/charging-station/:stationId/connector/:chargerId/connector-setting/:connectorId',
-    component: ConnectorSettingComponent,
+    path: 'manageStation/controlAccess/:id',
+    component: ControlAccessComponent
   },
   {
     path:'earnings',

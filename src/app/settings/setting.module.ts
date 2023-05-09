@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { SettingRoutingModule } from './setting-routing.module';
 import { SettingsComponent } from './settings.component';
-import { SecuritySettingComponent } from './security-setting/security-setting.component';
+import { SecuritySettingComponent } from './securitySetting/securitySetting.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { PaymentSettingComponent } from './payment-setting/payment-setting.component';
-import { NotificationSettingComponent } from './notification-setting/notification-setting.component';
+import { PaymentSettingComponent } from './paymentSetting/paymentSetting.component';
+import { NotificationSettingComponent } from './notificationSetting/notificationSetting.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
